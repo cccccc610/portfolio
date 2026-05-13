@@ -1,16 +1,17 @@
 /* ============================================
-   IRA'S ODYSSEY - Main Application
+   IRA'S ODYSSEY - 复古手账风格主程序
    ============================================ */
 
 // Data
 const portfolioData = {
   profile: {
-    name: "Ira",
-    title: "商业化美术资源运营 / 营销策略专家",
+    name: "杨程",
+    nameEn: "IRA",
+    title: "游戏商业化美术资源运营 / 营销策略专家",
     yearsOfExperience: 7,
     contact: { 
       email: "1070133802@qq.com", 
-      phone: "13763343826" 
+      phone: "137-6334-3826" 
     }
   },
   levels: [
@@ -45,20 +46,9 @@ const portfolioData = {
 const introScreen = document.getElementById('intro-screen');
 const hubScreen = document.getElementById('hub-screen');
 const outroScreen = document.getElementById('outro-screen');
-const terminalOutput = document.getElementById('terminal-output');
 const startBtn = document.getElementById('start-btn');
-const levelGrid = document.getElementById('level-grid');
+const foldersArea = document.getElementById('folders-area');
 const restartBtn = document.getElementById('restart-btn');
-const cursorFollower = document.querySelector('.cursor-follower');
-
-// Terminal lines for intro
-const terminalLines = [
-  '> SYSTEM BOOT...',
-  '> PLAYER DETECTED: IRA',
-  '> CLASS: COMMERCIAL STRATEGIST',
-  '> EXP: 7 YEARS',
-  '> STATUS: ONLINE'
-];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
@@ -67,97 +57,57 @@ function init() {
   // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   
-  // Setup custom cursor
-  setupCursor();
-  
-  // Start intro sequence
-  startIntroSequence();
-  
-  // Render level cards
-  renderLevelCards();
+  // Start intro animation
+  startIntroAnimation();
   
   // Setup event listeners
   setupEventListeners();
+  
+  // Initialize folder click handlers
+  initFolderCards();
 }
 
-// Custom Cursor
-function setupCursor() {
-  if (!cursorFollower) return;
-  
-  document.addEventListener('mousemove', (e) => {
-    gsap.to(cursorFollower, {
-      x: e.clientX - 10,
-      y: e.clientY - 10,
-      duration: 0.15
-    });
+// Intro Animation - 票券入场效果
+function startIntroAnimation() {
+  // 初始状态：票券卡片隐藏
+  gsap.set('.ticket-card', {
+    opacity: 0,
+    scale: 0.9,
+    y: 30
   });
   
-  // Add hover effect to interactive elements
-  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
+  // 票券卡片入场动画
+  gsap.to('.ticket-card', {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    delay: 0.3,
+    onComplete: showStartButton
+  });
+  
+  // 装饰元素动画
+  gsap.from('.intro-decor', {
+    opacity: 0,
+    scale: 0,
+    duration: 0.5,
+    stagger: 0.2,
+    delay: 0.6
   });
 }
 
-// Intro Sequence with Typewriter Effect
-function startIntroSequence() {
-  let lineIndex = 0;
-  
-  function typeLine() {
-    if (lineIndex < terminalLines.length) {
-      const line = document.createElement('span');
-      line.className = 'line';
-      line.textContent = terminalLines[lineIndex];
-      terminalOutput.appendChild(line);
-      
-      // Animate line appearance
-      gsap.to(line, {
-        opacity: 1,
-        duration: 0.1,
-        onComplete: () => {
-          lineIndex++;
-          setTimeout(typeLine, 300);
-        }
-      });
-    } else {
-      // Show start button
-      gsap.to(startBtn, {
-        opacity: 1,
-        duration: 0.5,
-        onStart: () => startBtn.classList.add('visible')
-      });
-    }
-  }
-  
-  typeLine();
-}
-
-// Render Level Cards
-function renderLevelCards() {
-  levelGrid.innerHTML = portfolioData.levels.map((level, index) => `
-    <div class="level-card" data-level="${index}" data-target="${level.detailScreen}">
-      <div class="level-number">0${index + 1}</div>
-      <h3 class="level-title">${level.title}</h3>
-      <p class="level-company">${level.company}</p>
-      <div class="level-metrics">
-        ${level.metrics.map(m => `<span class="metric-tag">${m}</span>`).join('')}
-      </div>
-    </div>
-  `).join('');
-  
-  // Add click handlers to level cards
-  document.querySelectorAll('.level-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const targetScreen = card.dataset.target;
-      navigateToDetail(targetScreen);
-    });
+function showStartButton() {
+  gsap.to(startBtn, {
+    opacity: 1,
+    duration: 0.5,
+    onStart: () => startBtn.classList.add('visible')
   });
 }
 
 // Event Listeners
 function setupEventListeners() {
-  // Start button
+  // Start button - 进入副本大厅
   startBtn.addEventListener('click', transitionToHub);
   
   // Restart button
@@ -180,91 +130,132 @@ function setupEventListeners() {
   });
 }
 
-// Transition to Hub
+// Initialize Folder Cards
+function initFolderCards() {
+  const folderCards = document.querySelectorAll('.folder-card');
+  
+  folderCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetScreen = card.dataset.target;
+      navigateToDetail(targetScreen);
+    });
+  });
+}
+
+// Transition to Hub - 文件夹滑落动画
 function transitionToHub() {
-  // Animate intro screen out
+  // 隐藏开机屏
   gsap.to(introScreen, {
     opacity: 0,
-    scale: 1.1,
-    duration: 0.8,
+    duration: 0.5,
     ease: "power2.inOut",
     onComplete: () => {
       introScreen.style.display = 'none';
       hubScreen.classList.add('active');
       
-      // Animate hub elements in
-      gsap.from('.hub-header', {
-        y: -50,
-        opacity: 0,
-        duration: 0.8
-      });
-      
-      gsap.from('.level-card', {
-        y: 50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15
-      });
+      // 触发文件夹滑落动画
+      animateFoldersDrop();
     }
   });
 }
 
-// Navigate to Detail Screen
+// 文件夹滑落动画
+function animateFoldersDrop() {
+  const folders = document.querySelectorAll('.folder-card');
+  
+  folders.forEach((folder, index) => {
+    // 设置初始状态
+    gsap.set(folder, {
+      opacity: 0,
+      y: -100,
+      rotateX: 30
+    });
+    
+    // 延迟滑落
+    setTimeout(() => {
+      folder.classList.add('animate-in');
+    }, index * 200);
+  });
+  
+  // 标题动画
+  gsap.from('.hub-header', {
+    y: -30,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+}
+
+// Navigate to Detail Screen - 文件散开动画
 function navigateToDetail(screenId) {
   const detailScreen = document.getElementById(screenId);
   if (!detailScreen) return;
   
-  // Hide hub
+  // 隐藏hub
   hubScreen.classList.remove('active');
   
-  // Show detail screen
+  // 显示详情页
   detailScreen.classList.add('active');
   
-  // Scroll to top
+  // 滚动到顶部
   window.scrollTo(0, 0);
   
-  // Initialize animations for this screen
+  // 初始化文件散开动画
+  animatePaperScatter(detailScreen);
+  
+  // 初始化详情页其他动画
   initDetailAnimations(detailScreen);
+}
+
+// 文件散开动画
+function animatePaperScatter(screen) {
+  const papers = screen.querySelectorAll('.module-section');
+  
+  papers.forEach((paper, index) => {
+    // 初始状态
+    gsap.set(paper, {
+      opacity: 0,
+      x: -50,
+      rotate: -2
+    });
+    
+    // 散开动画
+    setTimeout(() => {
+      paper.classList.add('animate-in');
+      gsap.to(paper, {
+        opacity: 1,
+        x: 0,
+        rotate: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    }, index * 150);
+  });
 }
 
 // Navigate to Hub
 function navigateToHub() {
-  // Hide all detail screens
+  // 隐藏所有详情页
   document.querySelectorAll('.detail-screen').forEach(screen => {
     screen.classList.remove('active');
   });
   
-  // Hide outro
+  // 隐藏终章
   outroScreen.classList.remove('active');
   
-  // Show hub
+  // 显示hub
   hubScreen.classList.add('active');
   
-  // Scroll to top
+  // 滚动到顶部
   window.scrollTo(0, 0);
+  
+  // 重新播放文件夹动画
+  animateFoldersDrop();
 }
 
 // Initialize Detail Screen Animations
 function initDetailAnimations(screen) {
-  // Animate sections on scroll
-  const sections = screen.querySelectorAll('.module-section');
-  
-  sections.forEach((section, index) => {
-    gsap.from(section, {
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      delay: index * 0.1
-    });
-  });
-  
-  // Count up animations
+  // 数据计数动画
   const countElements = screen.querySelectorAll('.count-up');
   
   countElements.forEach(el => {
@@ -286,6 +277,31 @@ function initDetailAnimations(screen) {
       }
     });
   });
+  
+  // 章节导航滚动追踪
+  const sections = screen.querySelectorAll('.module-section[id]');
+  
+  sections.forEach(section => {
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 50%",
+      end: "bottom 50%",
+      onEnter: () => updateChapterNav(screen, section.id),
+      onEnterBack: () => updateChapterNav(screen, section.id)
+    });
+  });
+}
+
+// 更新章节导航高亮
+function updateChapterNav(screen, chapterId) {
+  const navItems = screen.querySelectorAll('.chapter-item');
+  navItems.forEach(item => {
+    if (item.dataset.chapter === chapterId) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
 }
 
 // Scroll to Chapter
@@ -294,11 +310,11 @@ function scrollToChapter(item, chapterId) {
   const chapter = screen.querySelector(`#${chapterId}`);
   
   if (chapter) {
-    // Update active state
+    // 更新高亮状态
     screen.querySelectorAll('.chapter-item').forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     
-    // Scroll to chapter
+    // 滚动到章节
     gsap.to(window, {
       scrollTo: { y: chapter, offsetY: 80 },
       duration: 0.8
@@ -306,9 +322,51 @@ function scrollToChapter(item, chapterId) {
   }
 }
 
+// Navigate to Outro - 胶卷滚动动画
+function navigateToOutro() {
+  // 隐藏所有详情页
+  document.querySelectorAll('.detail-screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+  
+  // 显示终章
+  outroScreen.classList.add('active');
+  
+  // 滚动到顶部
+  window.scrollTo(0, 0);
+  
+  // 触发胶卷动画
+  animateFilmRoll();
+}
+
+// 胶卷滚动动画
+function animateFilmRoll() {
+  const frames = document.querySelectorAll('.film-frame');
+  
+  // 胶卷轴旋转动画
+  gsap.to('.film-reel', {
+    rotation: 360,
+    duration: 20,
+    ease: "none",
+    repeat: -1
+  });
+  
+  // 帧内容依次显示
+  frames.forEach((frame, index) => {
+    setTimeout(() => {
+      frame.classList.add('visible');
+    }, 500 + index * 300);
+  });
+  
+  // 显示重启按钮
+  setTimeout(() => {
+    restartBtn.classList.add('visible');
+  }, 500 + frames.length * 300 + 500);
+}
+
 // Restart Journey
 function restartJourney() {
-  // Reset all screens
+  // 重置所有页面
   document.querySelectorAll('.detail-screen').forEach(screen => {
     screen.classList.remove('active');
   });
@@ -316,7 +374,14 @@ function restartJourney() {
   hubScreen.classList.remove('active');
   outroScreen.classList.remove('active');
   
-  // Reset intro screen
+  // 重置胶卷帧
+  document.querySelectorAll('.film-frame').forEach(frame => {
+    frame.classList.remove('visible');
+  });
+  
+  restartBtn.classList.remove('visible');
+  
+  // 重置开机屏
   introScreen.style.display = 'flex';
   gsap.to(introScreen, {
     opacity: 1,
@@ -324,35 +389,39 @@ function restartJourney() {
     duration: 0.5
   });
   
-  // Reset terminal
-  terminalOutput.innerHTML = '';
-  startBtn.classList.remove('visible');
-  
-  // Scroll to top
+  // 滚动到顶部
   window.scrollTo(0, 0);
   
-  // Restart intro sequence
-  startIntroSequence();
+  // 重新开始开场动画
+  startIntroAnimation();
 }
 
-// Update cursor hover effect after dynamic content
-function updateCursorHovers() {
-  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card, .collab-item, .asset-tag, .result-box, .collab-preview-card, .flow-box, .network-node, .pay-level, .quality-step, .pyramid-content');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
-  });
-}
+// 滚动到页面底部时显示终章
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight;
+  const winHeight = window.innerHeight;
+  
+  // 检测是否到达详情页底部
+  if (st + winHeight >= docHeight - 100) {
+    // 如果在详情页中，可以触发终章
+    const activeDetail = document.querySelector('.detail-screen.active');
+    if (activeDetail && st > lastScrollTop) {
+      // 向下滚动到底部时显示终章
+      // navigateToOutro(); // 可选：自动跳转到终章
+    }
+  }
+  
+  lastScrollTop = st <= 0 ? 0 : st;
+});
 
-// Call after initial render
-setTimeout(updateCursorHovers, 100);
-
-// Add smooth scroll for collab preview cards
+// 联动预览卡片点击滚动
 document.addEventListener('click', (e) => {
   const card = e.target.closest('.collab-preview-card');
   if (card) {
     const targetId = card.dataset.target;
-    const target = document.querySelector(targetId);
+    const target = document.querySelector(`#${targetId}`);
     if (target) {
       gsap.to(window, {
         scrollTo: { y: target, offsetY: 100 },
@@ -362,7 +431,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Intersection Observer for terminal lines animation
+// Intersection Observer for fade-in animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -371,7 +440,24 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-// Observe all terminal lines and fade-in elements
-document.querySelectorAll('.terminal-line, .fade-in').forEach(el => {
+// Observe fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => {
   observer.observe(el);
 });
+
+// 初始化时检查URL hash，如果有则直接跳转到对应详情页
+function checkHashNavigation() {
+  const hash = window.location.hash;
+  if (hash) {
+    const targetId = hash.substring(1);
+    const detailScreen = document.getElementById(targetId);
+    if (detailScreen && detailScreen.classList.contains('detail-screen')) {
+      // 跳过开机屏，直接显示详情页
+      introScreen.style.display = 'none';
+      navigateToDetail(targetId);
+    }
+  }
+}
+
+// 页面加载完成后检查hash
+setTimeout(checkHashNavigation, 100);

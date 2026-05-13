@@ -3,34 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ira's Odyssey | 商业化策略与运营作品集</title>
+  <title>杨程 | 商业化美术运营作品集</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Section 1: 开机屏 -->
+  <!-- Section 1: 开机屏 - 票券风格 -->
   <section id="intro-screen" class="screen">
     <div class="intro-container">
-      <div class="terminal-text" id="terminal-output"></div>
-      <button class="start-btn" id="start-btn">
-        <span class="btn-text">[ PRESS START ]</span>
-      </button>
+      <div class="ticket-card">
+        <!-- 装饰元素 -->
+        <span class="intro-decor decor-1">✦</span>
+        <span class="intro-decor decor-2">✦</span>
+        
+        <!-- 中文姓名 -->
+        <h1 class="intro-name">杨 程</h1>
+        <p class="intro-english-name">YANG CHENG · IRA</p>
+        
+        <!-- 标题便签 -->
+        <div class="intro-title">
+          游戏商业化美术资源运营<br>
+          营销策略专家
+        </div>
+        
+        <!-- 联系方式 -->
+        <div class="intro-contact">
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <span>137-6334-3826</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉</span>
+            <span>1070133802@qq.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏱</span>
+            <span>7 年游戏行业经验</span>
+          </div>
+        </div>
+        
+        <!-- 开始按钮 -->
+        <button class="start-btn" id="start-btn">
+          进入副本
+        </button>
+      </div>
     </div>
-    <div class="scanline"></div>
-    <div class="noise-overlay"></div>
   </section>
 
-  <!-- Section 2: 副本大厅 -->
+  <!-- Section 2: 副本大厅 - 文件夹滑落风格 -->
   <section id="hub-screen" class="screen">
     <div class="hub-container">
       <div class="hub-header">
-        <h1 class="glitch" data-text="SELECT MISSION">SELECT MISSION</h1>
-        <p class="subtitle">// 选择你的副本</p>
+        <h1 class="hub-title">人生副本</h1>
+        <p class="hub-subtitle">选择你想要探索的章节</p>
       </div>
-      <div class="level-grid" id="level-grid">
-        <!-- 动态渲染 -->
+      
+      <div class="folders-area" id="folders-area">
+        <!-- 文件夹1: 商业化外观管线搭建 -->
+        <div class="folder-card" data-level="0" data-target="detail-screen-1">
+          <div class="folder-tab">关卡 01</div>
+          <div class="folder-body">
+            <div class="folder-holes">
+              <div class="hole"></div>
+              <div class="hole"></div>
+              <div class="hole"></div>
+            </div>
+            <div class="folder-content">
+              <div class="folder-thumb">📊</div>
+              <div class="folder-info">
+                <div class="folder-number">LEVEL 01</div>
+                <h3 class="folder-title">商业化外观管线搭建</h3>
+                <p class="folder-company">腾讯 IEG 天美</p>
+                <div class="folder-tags">
+                  <span class="tag-item">300+ 资源交付</span>
+                  <span class="tag-item">效能提升 30%</span>
+                </div>
+              </div>
+            </div>
+            <div class="folder-arrow">→</div>
+          </div>
+        </div>
+        
+        <!-- 文件夹2: 跨界联动与大型节点 -->
+        <div class="folder-card" data-level="1" data-target="detail-screen-2">
+          <div class="folder-tab">关卡 02</div>
+          <div class="folder-body">
+            <div class="folder-holes">
+              <div class="hole"></div>
+              <div class="hole"></div>
+              <div class="hole"></div>
+            </div>
+            <div class="folder-content">
+              <div class="folder-thumb">🤝</div>
+              <div class="folder-info">
+                <div class="folder-number">LEVEL 02</div>
+                <h3 class="folder-title">跨界联动与大型节点</h3>
+                <p class="folder-company">腾讯 IEG 天美</p>
+                <div class="folder-tags">
+                  <span class="tag-item">高 ROI 产出</span>
+                  <span class="tag-item">全球化视野</span>
+                </div>
+              </div>
+            </div>
+            <div class="folder-arrow">→</div>
+          </div>
+        </div>
+        
+        <!-- 文件夹3: 整合营销与破圈传播 -->
+        <div class="folder-card" data-level="2" data-target="detail-screen-3">
+          <div class="folder-tab">关卡 03</div>
+          <div class="folder-body">
+            <div class="folder-holes">
+              <div class="hole"></div>
+              <div class="hole"></div>
+              <div class="hole"></div>
+            </div>
+            <div class="folder-content">
+              <div class="folder-thumb">📢</div>
+              <div class="folder-info">
+                <div class="folder-number">LEVEL 03</div>
+                <h3 class="folder-title">整合营销与破圈传播</h3>
+                <p class="folder-company">4A 广告代理</p>
+                <div class="folder-tags">
+                  <span class="tag-item">阅读量破亿</span>
+                  <span class="tag-item">好感度 +35%</span>
+                </div>
+              </div>
+            </div>
+            <div class="folder-arrow">→</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1280,21 +1384,63 @@
     </div>
   </section>
 
-  <!-- Section 4: 终章谢幕 -->
+  <!-- Section 4: 终章谢幕 - 胶卷滚动 -->
   <section id="outro-screen" class="screen">
     <div class="outro-container">
-      <div class="terminal-block">
-        <p class="terminal-line">&gt; MISSION ACCOMPLISHED.</p>
-        <p class="terminal-line">&gt; INITIATE CONTACT PROTOCOL:</p>
-        <p class="terminal-line contact">&gt; PHONE: <span class="accent">137-6334-3826</span></p>
-        <p class="terminal-line contact">&gt; EMAIL: <span class="accent">1070133802@qq.com</span></p>
-        <p class="terminal-line spacer">&gt; YEARS OF EXP: <span class="accent">7</span></p>
-        <button class="restart-btn" id="restart-btn">
-          <span class="btn-text">[ RESTART JOURNEY ? ]</span>
-        </button>
+      <!-- 胶卷轴 -->
+      <div class="film-roll-container">
+        <div class="film-reel">
+          <div class="reel-holes">
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+            <div class="reel-hole"></div>
+          </div>
+        </div>
+        
+        <!-- 胶卷条 -->
+        <div class="film-strip">
+          <div class="film-content">
+            <div class="film-frame">
+              <div class="film-label">姓名 / NAME</div>
+              <div class="film-value name">杨 程</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">英文名 / ENGLISH</div>
+              <div class="film-value">IRA</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">从业经验 / EXPERIENCE</div>
+              <div class="film-value">7 年游戏行业</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">过往项目 / PROJECTS</div>
+              <div class="film-value">宝可梦大集结 · 阴阳师 · 梦幻西游</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">专业领域 / EXPERTISE</div>
+              <div class="film-value">商业化运营 · 跨界联动 · 整合营销</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">联系电话 / PHONE</div>
+              <div class="film-value contact">137-6334-3826</div>
+            </div>
+            <div class="film-frame">
+              <div class="film-label">电子邮箱 / EMAIL</div>
+              <div class="film-value contact">1070133802@qq.com</div>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      <button class="restart-btn" id="restart-btn">
+        重新开始探索
+      </button>
     </div>
-    <div class="scanline"></div>
   </section>
 
   <!-- 光标 -->
