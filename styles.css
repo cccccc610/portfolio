@@ -2241,3 +2241,347 @@ tr.tier-minnow td:first-child { color: #888; }
   font-size: 0.65rem;
   text-align: center;
 }
+
+/* ========== 整合营销模块样式 ========== */
+.metrics-4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 核心能力六边形布局 */
+.capability-hexagon {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  height: 350px;
+}
+
+.hex-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, rgba(0, 255, 204, 0.3) 100%);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg-color);
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+}
+
+.hex-node {
+  position: absolute;
+  width: 100px;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px 10px;
+  transition: all 0.3s ease;
+}
+
+.hex-node:hover {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.hex-node .node-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.hex-node .node-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.hex-node .node-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* 六边形节点位置 */
+.hex-node.node-1 { top: 0; left: 50%; transform: translateX(-50%); }
+.hex-node.node-2 { top: 50%; right: 0; transform: translateY(-50%); }
+.hex-node.node-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.hex-node.node-4 { top: 50%; left: 0; transform: translateY(-50%); }
+
+/* 联动流程 */
+.linkage-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  flex: 1;
+  min-width: 150px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px 15px;
+  text-align: center;
+  position: relative;
+}
+
+.flow-step .step-number {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-color);
+  color: var(--bg-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.flow-step h4 {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+  margin-top: 5px;
+}
+
+.flow-step p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.flow-arrow {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* 营销案例卡片 */
+.marketing-case {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.marketing-case:hover {
+  border-color: var(--accent-color);
+}
+
+.case-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(0, 255, 204, 0.03);
+}
+
+.case-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--case-color, var(--accent-color));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--bg-color);
+}
+
+.case-info h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.case-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.case-tag {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  background: rgba(0, 255, 204, 0.1);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  border-radius: 20px;
+  color: var(--accent-color);
+}
+
+.case-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.case-content h4 {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.case-content h4::before {
+  content: '//';
+  color: var(--text-secondary);
+}
+
+.case-bg p,
+.case-action ul {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.case-action ul {
+  list-style: none;
+  padding: 0;
+}
+
+.case-action li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+}
+
+.case-action li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.result-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.result-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* 传播渠道矩阵 */
+.channel-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.channel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.channel-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.channel-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.channel-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.channel-platforms {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .case-content {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .linkage-flow {
+    flex-direction: column;
+  }
+  
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .channel-matrix {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metrics-4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .capability-hexagon {
+    height: auto;
+    padding: 20px;
+  }
+  
+  .hex-center {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto 30px;
+  }
+  
+  .hex-node {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin-bottom: 15px;
+  }
+  
+  .channel-matrix {
+    grid-template-columns: 1fr;
+  }
+}
