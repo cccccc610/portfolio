@@ -3,21 +3,21 @@
    ============================================ */
 
 :root {
-  /* Colors - 甜桃榛果配色 */
-  --bg-color: #050505;
-  --bg-secondary: #0a0a0a;
-  --bg-card: #0d0d0d;
-  --text-primary: #E0E0E0;
-  --text-secondary: #888888;
-  --text-muted: #555555;
-  --accent-color: #78A5CE;       /* 灰蓝色 - 主强调色 */
-  --accent-secondary: #DDA4B4;   /* 豆沙粉色 - 次强调色 */
-  --accent-warm: #FFF0D9;        /* 奶黄色 - 温暖点缀 */
-  --accent-dark: #7C5549;        /* 深榛子棕色 - 深色强调 */
-  --accent-dim: rgba(120, 165, 206, 0.1);
-  --accent-glow: rgba(120, 165, 206, 0.3);
-  --border-color: #1a1a1a;
-  --border-hover: #333333;
+  /* Colors - 甜桃榛果亮色版 */
+  --bg-color: #FFFAF7;             /* 暖白底 */
+  --bg-secondary: #FFF5F0;         /* 次级暖白 */
+  --bg-card: #FFFFFF;              /* 卡片纯白 */
+  --text-primary: #78A5CE;         /* 灰蓝色 - 主文字 */
+  --text-secondary: #5A8BB0;       /* 深蓝灰 - 次级文字 */
+  --text-muted: #9AB8D0;           /* 浅蓝灰 - 弱化文字 */
+  --accent-color: #DDA4B4;         /* 豆沙粉色 - 主强调色(重点数字/文字) */
+  --accent-secondary: #78A5CE;     /* 灰蓝色 - 次强调色 */
+  --accent-warm: #FFF0D9;          /* 奶黄色 - 温暖点缀 */
+  --accent-dark: #7C5549;          /* 深榛子棕色 - 深色强调 */
+  --accent-dim: rgba(221, 164, 180, 0.15);
+  --accent-glow: rgba(221, 164, 180, 0.3);
+  --border-color: #E8E0DC;
+  --border-hover: #DDA4B4;
   
   /* Typography */
   --font-display: 'Orbitron', 'Space Mono', monospace;
@@ -55,20 +55,21 @@ body {
 /* Selection */
 ::selection {
   background: var(--accent-color);
-  color: var(--bg-color);
+  color: white;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-color);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--accent-color);
+  border-radius: 3px;
 }
 
 /* ============================================
@@ -1087,7 +1088,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .quality-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(120, 165, 206, 0.2);
 }
 
 .quality-name {
@@ -2152,17 +2153,17 @@ tr.tier-minnow td:first-child { color: #888; }
 }
 
 .gallery-placeholder.balmain-theme {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(120, 165, 206, 0.1));
   border-color: #FFD700;
 }
 
 .gallery-placeholder.sv-theme {
-  background: linear-gradient(135deg, rgba(160, 32, 240, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(135deg, rgba(160, 32, 240, 0.15), rgba(120, 165, 206, 0.1));
   border-color: #A020F0;
 }
 
 .gallery-placeholder.trainer-theme {
-  background: linear-gradient(135deg, rgba(255, 100, 100, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(135deg, rgba(255, 100, 100, 0.15), rgba(120, 165, 206, 0.1));
   border-color: #FF6464;
 }
 
