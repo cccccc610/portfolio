@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ira's Odyssey | 商业化策略与运营作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Section 1: 开机屏 -->
+  <section id="intro-screen" class="screen">
+    <div class="intro-container">
+      <div class="terminal-text" id="terminal-output"></div>
+      <button class="start-btn" id="start-btn">
+        <span class="btn-text">[ PRESS START ]</span>
+      </button>
+    </div>
+    <div class="scanline"></div>
+    <div class="noise-overlay"></div>
+  </section>
+
+  <!-- Section 2: 副本大厅 -->
+  <section id="hub-screen" class="screen">
+    <div class="hub-container">
+      <div class="hub-header">
+        <h1 class="glitch" data-text="SELECT MISSION">SELECT MISSION</h1>
+        <p class="subtitle">// 选择你的副本</p>
+      </div>
+      <div class="level-grid" id="level-grid">
+        <!-- 动态渲染 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: 关卡纪实 -->
+  <section id="detail-screen" class="screen">
+    <nav class="detail-nav">
+      <div class="nav-logo">IRA</div>
+      <div class="nav-links">
+        <a href="#hub-screen" class="back-link">← RETURN TO HUB</a>
+      </div>
+    </nav>
+    <div class="detail-container">
+      <aside class="chapter-nav">
+        <div class="chapter-item active" data-chapter="background">BACKGROUND</div>
+        <div class="chapter-item" data-chapter="strategy">STRATEGY</div>
+        <div class="chapter-item" data-chapter="results">RESULTS</div>
+      </aside>
+      <main class="detail-content" id="detail-content">
+        <!-- 动态渲染 -->
+      </main>
+    </div>
+  </section>
+
+  <!-- Section 4: 终章谢幕 -->
+  <section id="outro-screen" class="screen">
+    <div class="outro-container">
+      <div class="terminal-block">
+        <p class="terminal-line">&gt; MISSION ACCOMPLISHED.</p>
+        <p class="terminal-line">&gt; INITIATE CONTACT PROTOCOL:</p>
+        <p class="terminal-line contact">&gt; PHONE: <span class="accent">137-6334-3826</span></p>
+        <p class="terminal-line contact">&gt; EMAIL: <span class="accent">1070133802@qq.com</span></p>
+        <p class="terminal-line spacer">&gt; YEARS OF EXP: <span class="accent">7</span></p>
+        <button class="restart-btn" id="restart-btn">
+          <span class="btn-text">[ RESTART JOURNEY ? ]</span>
+        </button>
+      </div>
+    </div>
+    <div class="scanline"></div>
+  </section>
+
+  <!-- 光标 -->
+  <div class="cursor-follower"></div>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
