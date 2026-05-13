@@ -1,13 +1,9 @@
-/**
- * IRA'S ODYSSEY - MAIN APPLICATION
- * 商业化策略与运营作品集
- */
+/* ============================================
+   IRA'S ODYSSEY - Main Application
+   ============================================ */
 
-// ============================================
-// DATA SCHEMA
-// ============================================
-
-const DATA = {
+// Data
+const portfolioData = {
   profile: {
     name: "Ira",
     title: "商业化美术资源运营 / 营销策略专家",
@@ -20,289 +16,271 @@ const DATA = {
   levels: [
     {
       id: "level-1",
-      number: "LEVEL 01",
       title: "商业化外观管线搭建",
       company: "腾讯 IEG 天美",
       metrics: ["300+ 资源交付", "0% 版权违规", "效能提升 30%"],
       description: "建立 RO 驱动的运营模型，主导皮肤从概念到上线的全流程。研发行业首个游戏外观商业化分析决策平台。",
-      details: {
-        background: "在腾讯天美工作室，我负责搭建游戏外观商业化的完整运营管线。这不仅仅是资源管理，而是从商业洞察到产品落地的全链路闭环。",
-        strategy: "建立以 ROI 为核心的运营决策模型，整合市场数据分析、用户偏好洞察和竞品监测。主导开发行业首个游戏外观商业化分析决策平台，实现数据驱动的精准决策。",
-        results: "累计完成 300+ 资源交付，保持 0% 版权违规率，整体交付效能提升 30%。平台成为团队核心决策工具，推动商业化收入显著增长。"
-      },
-      metricData: [
-        { value: 300, suffix: "+", label: "资源交付" },
-        { value: 0, suffix: "%", label: "版权违规率" },
-        { value: 30, suffix: "%", label: "效能提升" }
-      ]
+      detailScreen: "detail-screen-1"
     },
     {
       id: "level-2",
-      number: "LEVEL 02",
       title: "跨界联动与大型节点",
       company: "腾讯 IEG 天美",
       metrics: ["高 ROI 产出", "全球化视野"],
       description: "整合外部资源，主导宝可梦、ITZY、Balmain 等高影响力跨界合作，保障大型商业化节点落地。",
-      details: {
-        background: "跨界联动是游戏商业化的重要增长引擎。我负责从0到1搭建跨界合作体系，对接全球顶级IP和品牌资源。",
-        strategy: "建立跨界合作评估框架，从品牌调性、用户重叠度、商业潜力等维度筛选合作伙伴。主导谈判、监修、营销全流程，确保合作品质与ROI双优。",
-        results: "成功落地宝可梦、ITZY、Balmain 等重量级合作，单次联动ROI超出预期200%。建立可复用的跨界合作SOP，为团队沉淀核心能力。"
-      },
-      metricData: [
-        { value: 200, suffix: "%", label: "ROI超预期" },
-        { value: 3, suffix: "+", label: "顶级IP合作" },
-        { value: 1, suffix: "", label: "SOP沉淀" }
-      ]
+      detailScreen: "detail-screen-2"
     },
     {
       id: "level-3",
-      number: "LEVEL 03",
       title: "整合营销与破圈传播",
       company: "4A 广告代理",
       metrics: ["阅读量破亿", "好感度 +35%"],
       description: "负责《阴阳师》、《梦幻西游》等头部产品公关舆情与内容传播，建立舆情-美术联动机制。",
-      details: {
-        background: "在4A广告代理期间，我负责网易游戏头部产品的整合营销传播，涵盖公关舆情、内容营销和品牌建设。",
-        strategy: "建立舆情监测-快速响应-内容联动机制，将负面舆情转化为品牌叙事机会。策划多起破圈传播事件，实现用户圈层突破。",
-        results: "主导的传播项目累计阅读量破亿，品牌好感度提升35%。建立可复用的舆情管理体系，为美术团队提供精准的用户情绪洞察。"
-      },
-      metricData: [
-        { value: 100000000, suffix: "+", label: "阅读量" },
-        { value: 35, suffix: "%", label: "好感度提升" },
-        { value: 2, suffix: "", label: "头部产品" }
-      ]
+      detailScreen: "detail-screen-3"
     }
   ]
 };
 
-// ============================================
-// DOM ELEMENTS
-// ============================================
+// DOM Elements
+const introScreen = document.getElementById('intro-screen');
+const hubScreen = document.getElementById('hub-screen');
+const outroScreen = document.getElementById('outro-screen');
+const terminalOutput = document.getElementById('terminal-output');
+const startBtn = document.getElementById('start-btn');
+const levelGrid = document.getElementById('level-grid');
+const restartBtn = document.getElementById('restart-btn');
+const cursorFollower = document.querySelector('.cursor-follower');
 
-const elements = {
-  introScreen: document.getElementById('intro-screen'),
-  hubScreen: document.getElementById('hub-screen'),
-  detailScreen: document.getElementById('detail-screen'),
-  outroScreen: document.getElementById('outro-screen'),
-  terminalOutput: document.getElementById('terminal-output'),
-  startBtn: document.getElementById('start-btn'),
-  levelGrid: document.getElementById('level-grid'),
-  detailContent: document.getElementById('detail-content'),
-  restartBtn: document.getElementById('restart-btn'),
-  cursorFollower: document.querySelector('.cursor-follower')
-};
-
-// ============================================
-// INTRO ANIMATION
-// ============================================
-
-const introLines = [
-  "> SYSTEM BOOT...",
-  "> PLAYER DETECTED: IRA",
-  "> CLASS: COMMERCIAL STRATEGIST",
-  "> EXPERIENCE: 7 YEARS",
-  "> STATUS: READY FOR MISSION"
+// Terminal lines for intro
+const terminalLines = [
+  '> SYSTEM BOOT...',
+  '> PLAYER DETECTED: IRA',
+  '> CLASS: COMMERCIAL STRATEGIST',
+  '> EXP: 7 YEARS',
+  '> STATUS: ONLINE'
 ];
 
-function playIntroAnimation() {
-  const tl = gsap.timeline();
+// Initialize
+document.addEventListener('DOMContentLoaded', init);
+
+function init() {
+  // Register GSAP plugins
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   
-  // 打字机效果
-  introLines.forEach((line, index) => {
-    const lineEl = document.createElement('span');
-    lineEl.className = 'line';
-    lineEl.textContent = line;
-    elements.terminalOutput.appendChild(lineEl);
-    
-    tl.to(lineEl, {
-      opacity: 1,
-      duration: 0.05,
-      onStart: () => {
-        // 打字音效感
-        lineEl.style.textShadow = '0 0 10px var(--accent-color)';
-      }
-    }, index * 0.8);
+  // Setup custom cursor
+  setupCursor();
+  
+  // Start intro sequence
+  startIntroSequence();
+  
+  // Render level cards
+  renderLevelCards();
+  
+  // Setup event listeners
+  setupEventListeners();
+}
+
+// Custom Cursor
+function setupCursor() {
+  if (!cursorFollower) return;
+  
+  document.addEventListener('mousemove', (e) => {
+    gsap.to(cursorFollower, {
+      x: e.clientX - 10,
+      y: e.clientY - 10,
+      duration: 0.15
+    });
   });
   
-  // 显示开始按钮
-  tl.to(elements.startBtn, {
-    opacity: 1,
-    duration: 0.5
-  }, "-=0.3");
-  
-  return tl;
+  // Add hover effect to interactive elements
+  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
+  });
 }
 
-// ============================================
-// START BUTTON HANDLER
-// ============================================
-
-function handleStart() {
-  const tl = gsap.timeline();
+// Intro Sequence with Typewriter Effect
+function startIntroSequence() {
+  let lineIndex = 0;
   
-  // 文字飞速向上淡出
-  tl.to(elements.terminalOutput, {
-    y: -100,
-    opacity: 0,
-    duration: 0.5,
-    ease: "power2.in"
-  })
-  .to(elements.startBtn, {
-    opacity: 0,
-    scale: 0.8,
-    duration: 0.3
-  }, "-=0.3")
-  // 背景缩放过渡
-  .to(elements.introScreen, {
-    scale: 1.1,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.inOut"
-  })
-  // 滚动到HUB
-  .to(window, {
-    scrollTo: "#hub-screen",
-    duration: 0
-  })
-  .set(elements.introScreen, { display: 'none' })
-  .fromTo("#hub-screen", 
-    { opacity: 0 },
-    { opacity: 1, duration: 0.5 }
-  );
+  function typeLine() {
+    if (lineIndex < terminalLines.length) {
+      const line = document.createElement('span');
+      line.className = 'line';
+      line.textContent = terminalLines[lineIndex];
+      terminalOutput.appendChild(line);
+      
+      // Animate line appearance
+      gsap.to(line, {
+        opacity: 1,
+        duration: 0.1,
+        onComplete: () => {
+          lineIndex++;
+          setTimeout(typeLine, 300);
+        }
+      });
+    } else {
+      // Show start button
+      gsap.to(startBtn, {
+        opacity: 1,
+        duration: 0.5,
+        onStart: () => startBtn.classList.add('visible')
+      });
+    }
+  }
   
-  return tl;
+  typeLine();
 }
 
-// ============================================
-// RENDER LEVEL CARDS
-// ============================================
-
+// Render Level Cards
 function renderLevelCards() {
-  elements.levelGrid.innerHTML = DATA.levels.map(level => `
-    <div class="level-card" data-level-id="${level.id}">
-      <div class="level-number">${level.number}</div>
+  levelGrid.innerHTML = portfolioData.levels.map((level, index) => `
+    <div class="level-card" data-level="${index}" data-target="${level.detailScreen}">
+      <div class="level-number">0${index + 1}</div>
       <h3 class="level-title">${level.title}</h3>
       <p class="level-company">${level.company}</p>
       <div class="level-metrics">
-        ${level.metrics.map(m => `<span class="metric">${m}</span>`).join('')}
+        ${level.metrics.map(m => `<span class="metric-tag">${m}</span>`).join('')}
       </div>
     </div>
   `).join('');
   
-  // 添加点击事件
+  // Add click handlers to level cards
   document.querySelectorAll('.level-card').forEach(card => {
     card.addEventListener('click', () => {
-      const levelId = card.dataset.levelId;
-      const level = DATA.levels.find(l => l.id === levelId);
-      renderDetail(level);
-      gsap.to(window, {
-        scrollTo: "#detail-screen",
-        duration: 0.8,
-        ease: "power2.inOut"
-      });
+      const targetScreen = card.dataset.target;
+      navigateToDetail(targetScreen);
+    });
+  });
+}
+
+// Event Listeners
+function setupEventListeners() {
+  // Start button
+  startBtn.addEventListener('click', transitionToHub);
+  
+  // Restart button
+  restartBtn.addEventListener('click', restartJourney);
+  
+  // Back links
+  document.querySelectorAll('.back-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateToHub();
     });
   });
   
-  // 卡片入场动画
-  gsap.fromTo(".level-card", 
-    { opacity: 0, y: 50 },
-    { 
-      opacity: 1, 
-      y: 0, 
-      duration: 0.6, 
-      stagger: 0.15,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#hub-screen",
-        start: "top 60%"
-      }
+  // Chapter navigation
+  document.querySelectorAll('.chapter-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const chapter = item.dataset.chapter;
+      scrollToChapter(item, chapter);
+    });
+  });
+}
+
+// Transition to Hub
+function transitionToHub() {
+  // Animate intro screen out
+  gsap.to(introScreen, {
+    opacity: 0,
+    scale: 1.1,
+    duration: 0.8,
+    ease: "power2.inOut",
+    onComplete: () => {
+      introScreen.style.display = 'none';
+      hubScreen.classList.add('active');
+      
+      // Animate hub elements in
+      gsap.from('.hub-header', {
+        y: -50,
+        opacity: 0,
+        duration: 0.8
+      });
+      
+      gsap.from('.level-card', {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15
+      });
     }
-  );
+  });
 }
 
-// ============================================
-// RENDER DETAIL VIEW
-// ============================================
-
-function renderDetail(level) {
-  elements.detailContent.innerHTML = `
-    <div class="detail-header">
-      <div class="level-number">${level.number}</div>
-      <h2>${level.title}</h2>
-      <p class="company">${level.company}</p>
-    </div>
-    
-    <div class="detail-section" data-section="background">
-      <h3>// BACKGROUND</h3>
-      <p>${level.details.background}</p>
-    </div>
-    
-    <div class="detail-section" data-section="strategy">
-      <h3>// STRATEGY</h3>
-      <p>${level.details.strategy}</p>
-    </div>
-    
-    <div class="detail-section" data-section="results">
-      <h3>// RESULTS</h3>
-      <p>${level.details.results}</p>
-      <div class="metrics-display">
-        ${level.metricData.map(m => `
-          <div class="metric-item">
-            <div class="metric-number" data-target="${m.value}" data-suffix="${m.suffix}">0${m.suffix}</div>
-            <div class="metric-label">${m.label}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
+// Navigate to Detail Screen
+function navigateToDetail(screenId) {
+  const detailScreen = document.getElementById(screenId);
+  if (!detailScreen) return;
   
-  // ScrollTrigger动画
-  initDetailAnimations();
+  // Hide hub
+  hubScreen.classList.remove('active');
   
-  // 章节导航
-  initChapterNav();
+  // Show detail screen
+  detailScreen.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+  
+  // Initialize animations for this screen
+  initDetailAnimations(detailScreen);
 }
 
-// ============================================
-// DETAIL ANIMATIONS
-// ============================================
+// Navigate to Hub
+function navigateToHub() {
+  // Hide all detail screens
+  document.querySelectorAll('.detail-screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+  
+  // Hide outro
+  outroScreen.classList.remove('active');
+  
+  // Show hub
+  hubScreen.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
 
-function initDetailAnimations() {
-  // 段落淡入
-  gsap.utils.toArray('.detail-section').forEach(section => {
-    gsap.to(section, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
+// Initialize Detail Screen Animations
+function initDetailAnimations(screen) {
+  // Animate sections on scroll
+  const sections = screen.querySelectorAll('.module-section');
+  
+  sections.forEach((section, index) => {
+    gsap.from(section, {
       scrollTrigger: {
         trigger: section,
-        start: "top 70%",
+        start: "top 80%",
+        end: "bottom 20%",
         toggleActions: "play none none reverse"
-      }
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: index * 0.1
     });
   });
   
-  // 数字递增动画
-  gsap.utils.toArray('.metric-number').forEach(num => {
-    const target = parseInt(num.dataset.target);
-    const suffix = num.dataset.suffix;
+  // Count up animations
+  const countElements = screen.querySelectorAll('.count-up');
+  
+  countElements.forEach(el => {
+    const target = parseInt(el.dataset.target);
     
     ScrollTrigger.create({
-      trigger: num,
+      trigger: el,
       start: "top 80%",
       onEnter: () => {
-        gsap.to({ val: 0 }, {
-          val: target,
+        gsap.to(el, {
+          textContent: target,
           duration: 2,
           ease: "power2.out",
+          snap: { textContent: 1 },
           onUpdate: function() {
-            const current = Math.floor(this.targets()[0].val);
-            if (target >= 1000000) {
-              num.textContent = (current / 100000000).toFixed(0) + '亿' + suffix;
-            } else {
-              num.textContent = current + suffix;
-            }
+            el.textContent = Math.round(this.targets()[0].textContent);
           }
         });
       }
@@ -310,150 +288,75 @@ function initDetailAnimations() {
   });
 }
 
-// ============================================
-// CHAPTER NAVIGATION
-// ============================================
-
-function initChapterNav() {
-  const chapters = document.querySelectorAll('.chapter-item');
-  const sections = document.querySelectorAll('.detail-section');
+// Scroll to Chapter
+function scrollToChapter(item, chapterId) {
+  const screen = item.closest('.detail-screen');
+  const chapter = screen.querySelector(`#${chapterId}`);
   
-  chapters.forEach(chapter => {
-    chapter.addEventListener('click', () => {
-      const targetSection = document.querySelector(`[data-section="${chapter.dataset.chapter}"]`);
-      if (targetSection) {
-        gsap.to(window, {
-          scrollTo: { y: targetSection, offsetY: 100 },
-          duration: 0.6
-        });
-      }
-    });
-  });
-  
-  // 高亮当前章节
-  sections.forEach(section => {
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top 50%",
-      end: "bottom 50%",
-      onEnter: () => updateActiveChapter(section.dataset.section),
-      onEnterBack: () => updateActiveChapter(section.dataset.section)
-    });
-  });
-}
-
-function updateActiveChapter(sectionId) {
-  document.querySelectorAll('.chapter-item').forEach(item => {
-    item.classList.toggle('active', item.dataset.chapter === sectionId);
-  });
-}
-
-// ============================================
-// OUTRO ANIMATION
-// ============================================
-
-function initOutroAnimation() {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#outro-screen",
-      start: "top 60%",
-      toggleActions: "play none none reverse"
-    }
-  });
-  
-  tl.to(".terminal-line", {
-    opacity: 1,
-    y: 0,
-    duration: 0.4,
-    stagger: 0.2,
-    ease: "power2.out"
-  })
-  .to(".restart-btn", {
-    opacity: 1,
-    duration: 0.5
-  }, "-=0.2");
-}
-
-// ============================================
-// RESTART BUTTON
-// ============================================
-
-function handleRestart() {
-  gsap.to(window, {
-    scrollTo: "#intro-screen",
-    duration: 1,
-    ease: "power2.inOut",
-    onComplete: () => {
-      location.reload();
-    }
-  });
-}
-
-// ============================================
-// CURSOR FOLLOWER
-// ============================================
-
-function initCursorFollower() {
-  document.addEventListener('mousemove', (e) => {
-    gsap.to(elements.cursorFollower, {
-      x: e.clientX - 10,
-      y: e.clientY - 10,
-      duration: 0.15
-    });
-  });
-  
-  // Hover效果
-  document.querySelectorAll('.level-card, .start-btn, .restart-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      gsap.to(elements.cursorFollower, {
-        scale: 2,
-        borderColor: 'var(--accent-color)',
-        opacity: 0.8
-      });
-    });
-    el.addEventListener('mouseleave', () => {
-      gsap.to(elements.cursorFollower, {
-        scale: 1,
-        opacity: 0.5
-      });
-    });
-  });
-}
-
-// ============================================
-// INITIALIZATION
-// ============================================
-
-function init() {
-  // 注册GSAP插件
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-  
-  // 渲染卡片
-  renderLevelCards();
-  
-  // 播放开场动画
-  playIntroAnimation();
-  
-  // 绑定事件
-  elements.startBtn.addEventListener('click', handleStart);
-  elements.restartBtn.addEventListener('click', handleRestart);
-  
-  // 初始化Outro动画
-  initOutroAnimation();
-  
-  // 初始化光标
-  initCursorFollower();
-  
-  // 返回HUB链接
-  document.querySelector('.back-link')?.addEventListener('click', (e) => {
-    e.preventDefault();
+  if (chapter) {
+    // Update active state
+    screen.querySelectorAll('.chapter-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    
+    // Scroll to chapter
     gsap.to(window, {
-      scrollTo: "#hub-screen",
-      duration: 0.8,
-      ease: "power2.inOut"
+      scrollTo: { y: chapter, offsetY: 80 },
+      duration: 0.8
     });
+  }
+}
+
+// Restart Journey
+function restartJourney() {
+  // Reset all screens
+  document.querySelectorAll('.detail-screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+  
+  hubScreen.classList.remove('active');
+  outroScreen.classList.remove('active');
+  
+  // Reset intro screen
+  introScreen.style.display = 'flex';
+  gsap.to(introScreen, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.5
+  });
+  
+  // Reset terminal
+  terminalOutput.innerHTML = '';
+  startBtn.classList.remove('visible');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+  
+  // Restart intro sequence
+  startIntroSequence();
+}
+
+// Update cursor hover effect after dynamic content
+function updateCursorHovers() {
+  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
   });
 }
 
-// DOM加载完成后初始化
-document.addEventListener('DOMContentLoaded', init);
+// Call after initial render
+setTimeout(updateCursorHovers, 100);
+
+// Intersection Observer for terminal lines animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+// Observe all terminal lines and fade-in elements
+document.querySelectorAll('.terminal-line, .fade-in').forEach(el => {
+  observer.observe(el);
+});
