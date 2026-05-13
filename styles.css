@@ -2534,7 +2534,202 @@ tr.tier-minnow td:first-child { color: #888; }
   line-height: 1.5;
 }
 
+/* 季度规划卡片 */
+.quarter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.quarter-card {
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(0, 255, 204, 0.15);
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.quarter-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.quarter-card.q1 { border-top: 3px solid #FF6B6B; }
+.quarter-card.q2 { border-top: 3px solid #4ECDC4; }
+.quarter-card.q3 { border-top: 3px solid #FFE66D; }
+.quarter-card.q4 { border-top: 3px solid #95E1D3; }
+
+.quarter-tag {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.quarter-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.quarter-strategy {
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.quarter-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quarter-content li {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.quarter-content li:last-child {
+  border-bottom: none;
+}
+
+/* 节目规划网格 */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.program-section {
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.program-section:nth-child(1) { border-left: 3px solid #FF6B6B; }
+.program-section:nth-child(2) { border-left: 3px solid #4ECDC4; }
+.program-section:nth-child(3) { border-left: 3px solid #FFE66D; }
+.program-section:nth-child(4) { border-left: 3px solid #95E1D3; }
+
+.program-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.program-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-list li {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  padding-left: 8px;
+  position: relative;
+}
+
+.program-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* ChinaJoy亮点网格 */
+.cj-highlights {
+  margin: 15px 0;
+}
+
+.cj-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cj-item {
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid rgba(255, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cj-item:hover {
+  border-color: #FF4444;
+  transform: translateY(-2px);
+}
+
+.cj-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.cj-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.cj-desc {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* 案例主题块 */
+.case-theme {
+  margin-bottom: 15px;
+}
+
+.theme-block {
+  background: linear-gradient(135deg, rgba(0,255,204,0.1), rgba(0,255,204,0.05));
+  border: 1px solid rgba(0,255,204,0.2);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.theme-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.theme-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* 案例画廊 */
+.case-gallery {
+  margin: 15px 0;
+}
+
 @media (max-width: 900px) {
+  .quarter-grid,
+  .program-grid,
+  .cj-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .case-content {
     grid-template-columns: 1fr;
     gap: 15px;
