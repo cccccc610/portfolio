@@ -337,7 +337,7 @@ function restartJourney() {
 
 // Update cursor hover effect after dynamic content
 function updateCursorHovers() {
-  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card, .collab-item, .asset-tag, .result-box');
+  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card, .collab-item, .asset-tag, .result-box, .collab-preview-card, .flow-box, .network-node, .pay-level, .quality-step, .pyramid-content');
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
@@ -346,6 +346,21 @@ function updateCursorHovers() {
 
 // Call after initial render
 setTimeout(updateCursorHovers, 100);
+
+// Add smooth scroll for collab preview cards
+document.addEventListener('click', (e) => {
+  const card = e.target.closest('.collab-preview-card');
+  if (card) {
+    const targetId = card.dataset.target;
+    const target = document.querySelector(targetId);
+    if (target) {
+      gsap.to(window, {
+        scrollTo: { y: target, offsetY: 100 },
+        duration: 0.8
+      });
+    }
+  }
+});
 
 // Intersection Observer for terminal lines animation
 const observer = new IntersectionObserver((entries) => {

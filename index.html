@@ -130,22 +130,49 @@
           <!-- 分析模型 -->
           <div class="analysis-model">
             <h3 class="model-title">训练家皮肤分析模型</h3>
-            <div class="model-diagram">
-              <div class="model-center">
-                <span>训练家皮肤</span>
+            <div class="model-diagram-enhanced">
+              <div class="model-center-hex">
+                <div class="hex-inner">
+                  <span class="hex-title">训练家皮肤</span>
+                  <span class="hex-subtitle">核心资源</span>
+                </div>
               </div>
-              <div class="model-left">
-                <div class="model-node">IP价值赋予服饰</div>
-                <div class="model-node">视觉加持</div>
-                <div class="model-node">对标竞品尝试新方向</div>
-                <div class="model-label">资源本身</div>
+              <div class="model-flow-left">
+                <div class="flow-label">资源本身</div>
+                <div class="flow-nodes">
+                  <div class="flow-node" data-step="1">
+                    <span class="node-num">01</span>
+                    <span class="node-text">IP价值赋予服饰</span>
+                  </div>
+                  <div class="flow-node" data-step="2">
+                    <span class="node-num">02</span>
+                    <span class="node-text">视觉加持</span>
+                  </div>
+                  <div class="flow-node" data-step="3">
+                    <span class="node-num">03</span>
+                    <span class="node-text">对标竞品尝试新方向</span>
+                  </div>
+                </div>
               </div>
-              <div class="model-right">
-                <div class="model-node">时间和价格</div>
-                <div class="model-node">系统呈现</div>
-                <div class="model-node">市场销售模式</div>
-                <div class="model-label">商业化手段</div>
+              <div class="model-flow-right">
+                <div class="flow-label">商业化手段</div>
+                <div class="flow-nodes">
+                  <div class="flow-node" data-step="1">
+                    <span class="node-num">01</span>
+                    <span class="node-text">时间和价格策略</span>
+                  </div>
+                  <div class="flow-node" data-step="2">
+                    <span class="node-num">02</span>
+                    <span class="node-text">系统呈现优化</span>
+                  </div>
+                  <div class="flow-node" data-step="3">
+                    <span class="node-num">03</span>
+                    <span class="node-text">市场销售模式</span>
+                  </div>
+                </div>
               </div>
+              <div class="connector-line left"></div>
+              <div class="connector-line right"></div>
             </div>
           </div>
         </div>
@@ -157,57 +184,81 @@
             <h2>设计量化标准管线搭建</h2>
           </div>
           
-          <div class="pipeline-intro">
-            <div class="pipeline-problem">
-              <h4>面临问题</h4>
-              <p>设计标准模糊，其他模块对于美术风格设计理解门槛高，容易造成理解壁垒和信息缺失</p>
-            </div>
-            <div class="pipeline-role">
-              <h4>我的作用</h4>
-              <p>分析整理设计规律，做到可读性高的量化表现，形成制作规范，便于相关板块人员和决策者理解与跟进</p>
+          <!-- 可视化流程图 -->
+          <div class="pipeline-flowchart">
+            <div class="flowchart-row">
+              <div class="flow-box primary">
+                <div class="box-icon">◆</div>
+                <div class="box-title">面临问题</div>
+                <div class="box-desc">设计标准模糊，理解门槛高，信息壁垒</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box solution">
+                <div class="box-icon">✦</div>
+                <div class="box-title">我的作用</div>
+                <div class="box-desc">分析设计规律，量化表现，形成规范</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box result">
+                <div class="box-icon">✓</div>
+                <div class="box-title">产出成果</div>
+                <div class="box-desc">可读性高的制作规范与协作流程</div>
+              </div>
             </div>
           </div>
 
           <div class="beneficiaries">
             <h4>受益模块</h4>
-            <div class="beneficiary-tags">
-              <span class="tag">角色设计</span>
-              <span class="tag">动作特效</span>
-              <span class="tag">美宣</span>
-              <span class="tag">策划</span>
-              <span class="tag">CP伙伴</span>
-              <span class="tag">决策者</span>
+            <div class="beneficiary-network">
+              <div class="network-center">制作规范</div>
+              <div class="network-node n1">角色设计</div>
+              <div class="network-node n2">动作特效</div>
+              <div class="network-node n3">美宣</div>
+              <div class="network-node n4">策划</div>
+              <div class="network-node n5">CP伙伴</div>
+              <div class="network-node n6">决策者</div>
             </div>
           </div>
 
           <div class="pipeline-framework">
-            <h3 class="framework-title">商业化设计&制作搭建</h3>
-            <div class="framework-grid">
-              <div class="framework-card">
-                <div class="card-header">产品定位</div>
-                <ul>
-                  <li>IP产品调性与风格</li>
-                  <li>商业化设计规范</li>
-                  <li>多部门共同合作实现</li>
-                </ul>
+            <h3 class="framework-title">商业化设计 & 制作搭建流程</h3>
+            <div class="framework-flow">
+              <div class="framework-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                  <div class="step-title">产品定位</div>
+                  <div class="step-items">
+                    <span>IP产品调性与风格</span>
+                    <span>商业化设计规范</span>
+                    <span>多部门合作实现</span>
+                  </div>
+                </div>
+                <div class="step-arrow">↓</div>
               </div>
-              <div class="framework-card">
-                <div class="card-header">商业化设计</div>
-                <ul>
-                  <li>皮肤结构特性规范</li>
-                  <li>IP设计（聚焦局内设计）</li>
-                  <li>资产制作细分表现</li>
-                  <li>设计与投放方式</li>
-                </ul>
+              <div class="framework-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                  <div class="step-title">商业化设计</div>
+                  <div class="step-items">
+                    <span>皮肤结构特性规范</span>
+                    <span>IP设计（局内）</span>
+                    <span>资产制作细分</span>
+                    <span>设计与投放方式</span>
+                  </div>
+                </div>
+                <div class="step-arrow">↓</div>
               </div>
-              <div class="framework-card">
-                <div class="card-header">跨部门合作</div>
-                <ul>
-                  <li>大厅表现</li>
-                  <li>IP效果与战斗平衡性</li>
-                  <li>商业化设计主题体现</li>
-                  <li>战斗手感体验</li>
-                </ul>
+              <div class="framework-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                  <div class="step-title">跨部门合作</div>
+                  <div class="step-items">
+                    <span>大厅表现</span>
+                    <span>IP效果与战斗平衡</span>
+                    <span>商业化主题体现</span>
+                    <span>战斗手感体验</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -258,61 +309,87 @@
             <p>以英雄、皮肤作为核心资源，周边外显内容作为补充资源，时效性、颗粒化高的内容作为尾部资源</p>
           </div>
 
-          <div class="resource-tiers">
-            <div class="tier-row tier-1">
-              <div class="tier-badge">一级资源</div>
-              <div class="tier-label">核心</div>
-              <div class="tier-content">
-                <div class="tier-group">
-                  <h5>英雄</h5>
-                  <span>限定英雄</span>
-                  <span>活动英雄</span>
+          <!-- 资源金字塔图 -->
+          <div class="resource-pyramid">
+            <div class="pyramid-level level-1">
+              <div class="pyramid-shape">
+                <div class="pyramid-content">
+                  <div class="pyramid-badge tier-gold">一级资源</div>
+                  <div class="pyramid-title">核心</div>
+                  <div class="pyramid-desc">英雄 · 皮肤</div>
                 </div>
-                <div class="tier-group">
-                  <h5>皮肤</h5>
-                  <span>宝箱皮肤</span>
-                  <span>赛季皮肤</span>
-                  <span>限定皮肤</span>
-                  <span>功能性皮肤</span>
-                  <span>英雄附带皮肤</span>
-                  <span>日常主题皮肤</span>
+              </div>
+              <div class="pyramid-detail">
+                <div class="detail-group">
+                  <span class="group-label">英雄</span>
+                  <div class="group-items">
+                    <span>限定英雄</span>
+                    <span>活动英雄</span>
+                  </div>
+                </div>
+                <div class="detail-group">
+                  <span class="group-label">皮肤</span>
+                  <div class="group-items">
+                    <span>宝箱皮肤</span>
+                    <span>赛季皮肤</span>
+                    <span>限定皮肤</span>
+                    <span>功能性皮肤</span>
+                    <span>英雄附带皮肤</span>
+                    <span>日常主题皮肤</span>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="tier-row tier-2">
-              <div class="tier-badge">二级资源</div>
-              <div class="tier-label">补充</div>
-              <div class="tier-content">
-                <div class="tier-group">
-                  <h5>周边</h5>
-                  <span>皮肤拓展包</span>
-                  <span>头像框（永久）</span>
-                  <span>天幕（永久）</span>
+            
+            <div class="pyramid-level level-2">
+              <div class="pyramid-shape">
+                <div class="pyramid-content">
+                  <div class="pyramid-badge tier-silver">二级资源</div>
+                  <div class="pyramid-title">补充</div>
+                  <div class="pyramid-desc">周边 · 局内表现</div>
                 </div>
-                <div class="tier-group">
-                  <h5>局内表现（永久）</h5>
-                  <span>个性按键</span>
-                  <span>回城特效</span>
-                  <span>U招/技能特效</span>
-                  <span>局内播报</span>
-                  <span>训练家动作</span>
-                  <span>美瞳</span>
-                  <span>染发剂</span>
-                  <span>大厅背景</span>
+              </div>
+              <div class="pyramid-detail">
+                <div class="detail-group">
+                  <span class="group-label">周边</span>
+                  <div class="group-items">
+                    <span>皮肤拓展包</span>
+                    <span>头像框（永久）</span>
+                    <span>天幕（永久）</span>
+                  </div>
+                </div>
+                <div class="detail-group">
+                  <span class="group-label">局内表现（永久）</span>
+                  <div class="group-items">
+                    <span>个性按键</span>
+                    <span>回城特效</span>
+                    <span>U招/技能特效</span>
+                    <span>局内播报</span>
+                    <span>训练家动作</span>
+                    <span>美瞳</span>
+                    <span>染发剂</span>
+                    <span>大厅背景</span>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="tier-row tier-3">
-              <div class="tier-badge">三级资源</div>
-              <div class="tier-label">尾部</div>
-              <div class="tier-content">
-                <div class="tier-group">
-                  <h5>对战道具、持有物</h5>
-                  <span>各种体验卡</span>
-                  <span>白金徽章</span>
-                  <span>各种系统代币</span>
+            
+            <div class="pyramid-level level-3">
+              <div class="pyramid-shape">
+                <div class="pyramid-content">
+                  <div class="pyramid-badge tier-bronze">三级资源</div>
+                  <div class="pyramid-title">尾部</div>
+                  <div class="pyramid-desc">对战道具 · 持有物</div>
+                </div>
+              </div>
+              <div class="pyramid-detail">
+                <div class="detail-group">
+                  <span class="group-label">对战道具、持有物</span>
+                  <div class="group-items">
+                    <span>各种体验卡</span>
+                    <span>白金徽章</span>
+                    <span>各种系统代币</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -330,94 +407,150 @@
             <p>基于产品的用户付费分层与用户特点，拓展更多资源种类，来满足玩家的不同需求，拓宽皮肤资源结构。</p>
           </div>
 
-          <div class="user-tier-table">
-            <h4>国内用户付费分层</h4>
-            <div class="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>层级</th>
-                    <th>占比</th>
-                    <th>月付费区间</th>
-                    <th>用户特点</th>
-                    <th>策略目的</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="tier-whale">
-                    <td>大R</td>
-                    <td>25%</td>
-                    <td>¥1000+</td>
-                    <td>愿意为价值更高的专属外显资源付费/抽奖</td>
-                    <td>提供更多炫耀外显资源，刺激高付费</td>
-                  </tr>
-                  <tr class="tier-mid-high">
-                    <td>中大R</td>
-                    <td>35%</td>
-                    <td>¥200-1000</td>
-                    <td>乐于获取各类外观资源、更高频抽奖</td>
-                    <td>增强品质感，提高付费欲望</td>
-                  </tr>
-                  <tr class="tier-mid">
-                    <td>中R</td>
-                    <td>30%</td>
-                    <td>¥30-200</td>
-                    <td>重性价比、愿为专精宝可梦外观高额付费</td>
-                    <td>提升资源性价比，付费流转</td>
-                  </tr>
-                  <tr class="tier-low">
-                    <td>小R</td>
-                    <td>7%</td>
-                    <td>¥10-30</td>
-                    <td>月卡党、几乎不考虑高门槛付费</td>
-                    <td>维稳持续付费</td>
-                  </tr>
-                  <tr class="tier-minnow">
-                    <td>微氪</td>
-                    <td>3%</td>
-                    <td>¥0-10</td>
-                    <td>白嫖、可能被小额付费吸引破冰</td>
-                    <td>付费破冰</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!-- 用户付费金字塔 -->
+          <div class="user-pay-pyramid">
+            <h4>国内用户付费分层金字塔</h4>
+            <div class="pay-pyramid">
+              <div class="pay-level whale">
+                <div class="pay-bar" style="width: 25%;">
+                  <div class="pay-info">
+                    <span class="pay-tier">大R</span>
+                    <span class="pay-percent">25%</span>
+                    <span class="pay-amount">¥1000+</span>
+                  </div>
+                </div>
+                <div class="pay-detail">
+                  <span class="pay-trait">愿为专属外显付费</span>
+                  <span class="pay-strategy">提供炫耀资源刺激高付费</span>
+                </div>
+              </div>
+              <div class="pay-level mid-high">
+                <div class="pay-bar" style="width: 60%;">
+                  <div class="pay-info">
+                    <span class="pay-tier">中大R</span>
+                    <span class="pay-percent">35%</span>
+                    <span class="pay-amount">¥200-1000</span>
+                  </div>
+                </div>
+                <div class="pay-detail">
+                  <span class="pay-trait">乐于获取外观资源</span>
+                  <span class="pay-strategy">增强品质感提高付费欲望</span>
+                </div>
+              </div>
+              <div class="pay-level mid">
+                <div class="pay-bar" style="width: 90%;">
+                  <div class="pay-info">
+                    <span class="pay-tier">中R</span>
+                    <span class="pay-percent">30%</span>
+                    <span class="pay-amount">¥30-200</span>
+                  </div>
+                </div>
+                <div class="pay-detail">
+                  <span class="pay-trait">重性价比专精付费</span>
+                  <span class="pay-strategy">提升性价比付费流转</span>
+                </div>
+              </div>
+              <div class="pay-level low">
+                <div class="pay-bar" style="width: 97%;">
+                  <div class="pay-info">
+                    <span class="pay-tier">小R</span>
+                    <span class="pay-percent">7%</span>
+                    <span class="pay-amount">¥10-30</span>
+                  </div>
+                </div>
+                <div class="pay-detail">
+                  <span class="pay-trait">月卡党</span>
+                  <span class="pay-strategy">维稳持续付费</span>
+                </div>
+              </div>
+              <div class="pay-level minnow">
+                <div class="pay-bar" style="width: 100%;">
+                  <div class="pay-info">
+                    <span class="pay-tier">微氪</span>
+                    <span class="pay-percent">3%</span>
+                    <span class="pay-amount">¥0-10</span>
+                  </div>
+                </div>
+                <div class="pay-detail">
+                  <span class="pay-trait">白嫖/小额破冰</span>
+                  <span class="pay-strategy">付费破冰</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="skin-quality">
-            <h4>皮肤分级标准</h4>
-            <div class="quality-grid">
-              <div class="quality-card quality-aurora">
-                <div class="quality-name">极光</div>
-                <div class="quality-desc">特效/音效/设计/个性化差异</div>
+          <!-- 皮肤分级阶梯图 -->
+          <div class="skin-quality-steps">
+            <h4>皮肤分级标准阶梯</h4>
+            <div class="quality-steps">
+              <div class="quality-step step-aurora">
+                <div class="step-rank">T0</div>
+                <div class="step-name">极光</div>
+                <div class="step-features">
+                  <span>特效</span>
+                  <span>音效</span>
+                  <span>设计</span>
+                  <span>个性化</span>
+                </div>
               </div>
-              <div class="quality-card quality-orange">
-                <div class="quality-name">橙</div>
-                <div class="quality-desc">特效/音效/设计效果差异</div>
+              <div class="quality-step step-orange">
+                <div class="step-rank">T1</div>
+                <div class="step-name">橙</div>
+                <div class="step-features">
+                  <span>特效</span>
+                  <span>音效</span>
+                  <span>设计效果</span>
+                </div>
               </div>
-              <div class="quality-card quality-purple3">
-                <div class="quality-name">紫3</div>
-                <div class="quality-desc">特效设计为主</div>
+              <div class="quality-step step-purple-high">
+                <div class="step-rank">T2</div>
+                <div class="step-name">紫3</div>
+                <div class="step-features">
+                  <span>特效设计为主</span>
+                </div>
               </div>
-              <div class="quality-card quality-purple2">
-                <div class="quality-name">紫2</div>
-                <div class="quality-desc">皮肤主题/专属动画/特效丰富/定制化背景/定制附属资源</div>
+              <div class="quality-step step-purple-mid">
+                <div class="step-rank">T3</div>
+                <div class="step-name">紫2</div>
+                <div class="step-features">
+                  <span>皮肤主题</span>
+                  <span>专属动画</span>
+                  <span>特效丰富</span>
+                  <span>定制背景</span>
+                </div>
               </div>
-              <div class="quality-card quality-purple1">
-                <div class="quality-name">紫1</div>
-                <div class="quality-desc">皮肤主题/特效丰富/专属动作/主题背景/定制附属资源</div>
+              <div class="quality-step step-purple-low">
+                <div class="step-rank">T4</div>
+                <div class="step-name">紫1</div>
+                <div class="step-features">
+                  <span>皮肤主题</span>
+                  <span>特效丰富</span>
+                  <span>专属动作</span>
+                  <span>主题背景</span>
+                </div>
               </div>
-              <div class="quality-card quality-blue2">
-                <div class="quality-name">蓝2</div>
-                <div class="quality-desc">皮肤主题/简单特效</div>
+              <div class="quality-step step-blue-high">
+                <div class="step-rank">T5</div>
+                <div class="step-name">蓝2</div>
+                <div class="step-features">
+                  <span>皮肤主题</span>
+                  <span>简单特效</span>
+                </div>
               </div>
-              <div class="quality-card quality-blue1">
-                <div class="quality-name">蓝1</div>
-                <div class="quality-desc">皮肤主题/特效换色</div>
+              <div class="quality-step step-blue-low">
+                <div class="step-rank">T6</div>
+                <div class="step-name">蓝1</div>
+                <div class="step-features">
+                  <span>皮肤主题</span>
+                  <span>特效换色</span>
+                </div>
               </div>
-              <div class="quality-card quality-green">
-                <div class="quality-name">绿</div>
-                <div class="quality-desc">只有模型变化</div>
+              <div class="quality-step step-green">
+                <div class="step-rank">T7</div>
+                <div class="step-name">绿</div>
+                <div class="step-features">
+                  <span>仅模型变化</span>
+                </div>
               </div>
             </div>
           </div>
@@ -450,6 +583,39 @@
             <h2>跨界联动与大型节点</h2>
             <div class="company-tag">腾讯 IEG 天美</div>
           </div>
+          
+          <!-- 联动项目概览卡片 -->
+          <div class="collab-overview">
+            <div class="collab-preview-card" data-target="itzy">
+              <div class="preview-icon itzy-icon">♪</div>
+              <div class="preview-info">
+                <div class="preview-title">ITZY 联动</div>
+                <div class="preview-tag">跨界破圈</div>
+              </div>
+            </div>
+            <div class="collab-preview-card" data-target="balmain">
+              <div class="preview-icon balmain-icon">◆</div>
+              <div class="preview-info">
+                <div class="preview-title">Balmain 联动</div>
+                <div class="preview-tag luxury">高端破圈</div>
+              </div>
+            </div>
+            <div class="collab-preview-card" data-target="sv">
+              <div class="preview-icon sv-icon">⚡</div>
+              <div class="preview-info">
+                <div class="preview-title">朱紫联动</div>
+                <div class="preview-tag ip">IP联动</div>
+              </div>
+            </div>
+            <div class="collab-preview-card" data-target="trainer">
+              <div class="preview-icon trainer-icon">★</div>
+              <div class="preview-info">
+                <div class="preview-title">训练家大战</div>
+                <div class="preview-tag event">大型活动</div>
+              </div>
+            </div>
+          </div>
+          
           <div class="metrics-grid">
             <div class="metric-card">
               <div class="metric-value">HIGH</div>
@@ -476,6 +642,30 @@
             <span class="section-number">02</span>
             <h2>韩国女团 ITZY 联动</h2>
             <div class="collab-tag">跨界破圈</div>
+          </div>
+          
+          <!-- 项目图片展示区 -->
+          <div class="project-gallery">
+            <div class="gallery-main">
+              <div class="gallery-placeholder">
+                <div class="placeholder-content">
+                  <span class="placeholder-icon">♪</span>
+                  <span class="placeholder-text">ITZY × 宝可梦大集结</span>
+                  <span class="placeholder-subtext">王冠手势 · 联动直播 · 主题服饰</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-thumbs">
+              <div class="thumb-item">
+                <span class="thumb-label">ITZY采访视频</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">主题直播间</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">联动服饰展示</span>
+              </div>
+            </div>
           </div>
           
           <div class="collab-grid">
@@ -524,6 +714,30 @@
             <div class="collab-tag luxury">高端破圈</div>
           </div>
           
+          <!-- 项目图片展示区 -->
+          <div class="project-gallery">
+            <div class="gallery-main">
+              <div class="gallery-placeholder balmain-theme">
+                <div class="placeholder-content">
+                  <span class="placeholder-icon">◆</span>
+                  <span class="placeholder-text">BALMAIN × 宝可梦大集结</span>
+                  <span class="placeholder-subtext">黑金时装 · 电竞荣耀战服 · 奢侈品联名</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-thumbs">
+              <div class="thumb-item">
+                <span class="thumb-label">黑金时装游戏内展示</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">官方推特宣发</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">联名活动界面</span>
+              </div>
+            </div>
+          </div>
+          
           <div class="collab-grid">
             <div class="collab-info">
               <div class="collab-item">
@@ -567,6 +781,30 @@
             <span class="section-number">04</span>
             <h2>朱紫联动特典</h2>
             <div class="collab-tag ip">IP联动</div>
+          </div>
+          
+          <!-- 项目图片展示区 -->
+          <div class="project-gallery">
+            <div class="gallery-main">
+              <div class="gallery-placeholder sv-theme">
+                <div class="placeholder-content">
+                  <span class="placeholder-icon">⚡</span>
+                  <span class="placeholder-text">宝可梦 朱/紫 × 大集结</span>
+                  <span class="placeholder-subtext">阵营对抗 · 帕底亚服饰 · 新御三家</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-thumbs">
+              <div class="thumb-item">
+                <span class="thumb-label">朱紫宣传图</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">阵营对抗活动</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">帕底亚服饰</span>
+              </div>
+            </div>
           </div>
           
           <div class="collab-grid">
@@ -613,6 +851,30 @@
             <span class="section-number">05</span>
             <h2>乱入！训练家大战</h2>
             <div class="collab-tag event">大型活动</div>
+          </div>
+          
+          <!-- 项目图片展示区 -->
+          <div class="project-gallery">
+            <div class="gallery-main">
+              <div class="gallery-placeholder trainer-theme">
+                <div class="placeholder-content">
+                  <span class="placeholder-icon">★</span>
+                  <span class="placeholder-text">Pokemon Trainer Show Up!</span>
+                  <span class="placeholder-subtext">丹帝 · 竹兰 · 奇巴纳 · 馆主同款</span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-thumbs">
+              <div class="thumb-item">
+                <span class="thumb-label">活动界面</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">馆主服饰</span>
+              </div>
+              <div class="thumb-item">
+                <span class="thumb-label">参赛卡</span>
+              </div>
+            </div>
           </div>
           
           <div class="collab-grid">
