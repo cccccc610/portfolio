@@ -1231,6 +1231,213 @@ tr.tier-minnow td:first-child { color: #888; }
   100% { transform: translate(0); }
 }
 
+/* ============================================
+   联动模块样式
+   ============================================ */
+
+.collab-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  margin-left: var(--spacing-sm);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+}
+
+.collab-tag.luxury {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.collab-tag.ip {
+  border-color: #A020F0;
+  color: #A020F0;
+}
+
+.collab-tag.event {
+  border-color: #FF6464;
+  color: #FF6464;
+}
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+@media (max-width: 1024px) {
+  .collab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.collab-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.collab-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+}
+
+.collab-item h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.1em;
+}
+
+.collab-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.collab-action {
+  background: var(--bg-secondary);
+  border-left: 2px solid var(--accent-color);
+  padding: var(--spacing-md);
+}
+
+.collab-action h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.1em;
+}
+
+.collab-action ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.collab-action li {
+  position: relative;
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.collab-action li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.collab-action .highlight {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.result-box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-color);
+  margin-top: var(--spacing-sm);
+}
+
+.result-icon {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.result-box span {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.result-box strong {
+  color: var(--accent-color);
+}
+
+.collab-assets {
+  margin-top: var(--spacing-md);
+}
+
+.collab-assets h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.1em;
+}
+
+.asset-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.asset-tag {
+  padding: 0.25rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.asset-tag:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.asset-tag.luxury {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.collab-timeline {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+.collab-timeline h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.1em;
+}
+
+.timeline-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.timeline-date {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.timeline-progress {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-dim));
+}
+
+.timeline-duration {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-top: var(--spacing-xs);
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
   :root {

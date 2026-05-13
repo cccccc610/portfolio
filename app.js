@@ -26,7 +26,7 @@ const portfolioData = {
       id: "level-2",
       title: "跨界联动与大型节点",
       company: "腾讯 IEG 天美",
-      metrics: ["高 ROI 产出", "全球化视野"],
+      metrics: ["高 ROI 产出", "全球化视野", "好感度 +30%"],
       description: "整合外部资源，主导宝可梦、ITZY、Balmain 等高影响力跨界合作，保障大型商业化节点落地。",
       detailScreen: "detail-screen-2"
     },
@@ -337,7 +337,7 @@ function restartJourney() {
 
 // Update cursor hover effect after dynamic content
 function updateCursorHovers() {
-  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card');
+  const interactiveElements = document.querySelectorAll('button, a, .level-card, .chapter-item, .method-card, .framework-card, .quality-card, .collab-item, .asset-tag, .result-box');
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover'));
