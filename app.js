@@ -51,13 +51,13 @@ const levelGrid = document.getElementById('level-grid');
 const restartBtn = document.getElementById('restart-btn');
 const cursorFollower = document.querySelector('.cursor-follower');
 
-// Terminal lines for intro
+// Terminal lines for intro - Synthwave/Cyber style
 const terminalLines = [
   '> SYSTEM BOOT...',
   '> PLAYER DETECTED: IRA',
   '> CLASS: COMMERCIAL STRATEGIST',
-  '> EXP: 7 YEARS',
-  '> STATUS: ONLINE'
+  '> RANK: ELITE OPERATOR',
+  '> STATUS: READY'
 ];
 
 // Initialize
