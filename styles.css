@@ -297,6 +297,45 @@ body::before {
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
 }
 
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: float 2s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-text {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: var(--accent-pink);
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
 @keyframes glitch-1 {
   0% { transform: translate(0); }
   20% { transform: translate(-2px, 2px); }
@@ -1207,11 +1246,12 @@ tr.tier-minnow td:first-child { color: #888; }
    ============================================ */
 
 #outro-screen {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #000000;
+  background: var(--bg-main);
   position: relative;
+  min-height: 100vh;
 }
 
 #outro-screen::before {
@@ -1244,6 +1284,7 @@ tr.tier-minnow td:first-child { color: #888; }
   align-items: center;
   z-index: 10;
   padding: var(--spacing-xl);
+  perspective: 1000px;
 }
 
 /* ============================================
@@ -1260,14 +1301,12 @@ tr.tier-minnow td:first-child { color: #888; }
   width: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateY(90deg);
-  opacity: 0;
+  /* GSAP handles opacity and rotateY animation */
 }
 
-.player-id-card.visible {
-  transform: rotateY(0deg);
-  opacity: 1;
-  transition: transform 1s ease-out, opacity 0.5s ease-out;
+.player-id-card.active {
+  /* Active class is used for neon border animation only */
+  /* GSAP handles transform and opacity */
 }
 
 /* 霓虹流光边框动画 */
@@ -1286,7 +1325,7 @@ tr.tier-minnow td:first-child { color: #888; }
   transition: opacity 0.5s ease;
 }
 
-.player-id-card.visible::before {
+.player-id-card.active::before {
   opacity: 1;
   animation: neon-flow 3s linear infinite;
 }

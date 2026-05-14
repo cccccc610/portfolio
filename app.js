@@ -163,6 +163,17 @@ function setupEventListeners() {
   // Restart button
   restartBtn.addEventListener('click', restartJourney);
   
+  // Scroll indicator
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+      gsap.to(window, {
+        scrollTo: { y: '#outro-screen', offsetY: 0 },
+        duration: 1
+      });
+    });
+  }
+  
   // Back links
   document.querySelectorAll('.back-link').forEach(link => {
     link.addEventListener('click', (e) => {
@@ -381,15 +392,18 @@ function initOutroAnimations() {
   const playerCard = document.querySelector('.player-id-card');
   if (!playerCard) return;
   
+  // Set initial state
+  gsap.set(playerCard, { rotateY: 90, opacity: 0 });
+  
   // 3D flip entrance animation
-  gsap.from(playerCard, {
+  gsap.to(playerCard, {
     scrollTrigger: {
       trigger: '#outro-screen',
-      start: "top 60%",
+      start: "top 70%",
       toggleActions: "play none none reverse"
     },
-    rotateY: 90,
-    opacity: 0,
+    rotateY: 0,
+    opacity: 1,
     duration: 1.2,
     ease: "power2.out",
     onComplete: () => {
@@ -399,7 +413,7 @@ function initOutroAnimations() {
   });
   
   // Stats bar animations
-  gsap.from('.stat-bar-fill', {
+  gsap.from('.stat-fill', {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 50%"
