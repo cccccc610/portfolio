@@ -1239,56 +1239,341 @@ tr.tier-minnow td:first-child { color: #888; }
 }
 
 .outro-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 10;
+  padding: var(--spacing-xl);
 }
 
-.terminal-block {
-  font-family: var(--font-display);
-}
+/* ============================================
+   Player ID Card - 玩家身份卡
+   ============================================ */
 
-.terminal-line {
-  font-size: 0.85rem;
-  color: var(--accent-cyan);
-  margin: 0.5rem 0;
+.player-id-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 3px solid var(--accent-cyan);
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(90deg);
   opacity: 0;
+}
+
+.player-id-card.visible {
+  transform: rotateY(0deg);
+  opacity: 1;
+  transition: transform 1s ease-out, opacity 0.5s ease-out;
+}
+
+/* 霓虹流光边框动画 */
+.player-id-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan), var(--accent-yellow), var(--accent-pink));
+  background-size: 400% 100%;
+  z-index: -1;
+  border-radius: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.player-id-card.visible::before {
+  opacity: 1;
+  animation: neon-flow 3s linear infinite;
+}
+
+@keyframes neon-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* 卡片顶部装饰 */
+.card-header-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
   text-shadow: 0 0 10px var(--accent-cyan);
 }
 
-.terminal-line.visible {
-  opacity: 1;
+/* 卡片主体 */
+.card-body {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
 }
 
-.terminal-line.contact {
-  font-size: 1rem;
+/* 左侧：头像区域 */
+.avatar-area {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
-.terminal-line.spacer {
-  margin-top: var(--spacing-md);
+.avatar-frame {
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--accent-cyan);
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.terminal-line .accent {
+.avatar-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 102, 204, 0.2));
+  pointer-events: none;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.2) saturate(1.3) hue-rotate(-10deg);
+  transition: all 0.3s ease;
+}
+
+/* 头像Glitch效果 */
+.avatar-frame:hover .avatar-img {
+  animation: avatar-glitch 0.3s ease infinite;
+}
+
+@keyframes avatar-glitch {
+  0% {
+    filter: contrast(1.2) saturate(1.3) hue-rotate(-10deg);
+    transform: translate(0);
+  }
+  20% {
+    filter: contrast(1.4) saturate(1.5) hue-rotate(10deg);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    filter: contrast(1.1) saturate(1.2) hue-rotate(-20deg);
+    transform: translate(2px, -2px);
+  }
+  60% {
+    filter: contrast(1.3) saturate(1.4) hue-rotate(0deg);
+    transform: translate(-1px, -1px);
+  }
+  80% {
+    filter: contrast(1.5) saturate(1.6) hue-rotate(15deg);
+    transform: translate(1px, 1px);
+  }
+  100% {
+    filter: contrast(1.2) saturate(1.3) hue-rotate(-10deg);
+    transform: translate(0);
+  }
+}
+
+.player-id-tag {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px var(--accent-yellow);
+}
+
+/* 右侧：信息与属性区域 */
+.info-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.player-info-header {
+  text-align: left;
+}
+
+.player-name-display {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px var(--accent-pink);
+  margin: 0 0 0.3rem 0;
+}
+
+.player-class-display {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* RPG属性条 */
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  color: var(--text-secondary);
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.stat-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-cyan);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  background: var(--accent-yellow);
+  width: 0;
+  transition: width 1.5s ease-out;
+}
+
+.stat-fill.max {
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink));
+}
+
+.stat-fill.s-rank {
+  width: 95%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+}
+
+.stat-fill.zero {
+  width: 0%;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  color: var(--accent-yellow);
+  text-shadow: 0 0 5px var(--accent-yellow);
+  width: 50px;
+  text-align: right;
+}
+
+/* 技能标签 */
+.skills-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.skill-tag {
+  font-family: var(--font-display);
+  font-size: 0.5rem;
   color: var(--accent-pink);
-  text-shadow: 0 0 10px var(--accent-pink);
+  border: 1px solid var(--accent-pink);
+  padding: 0.3rem 0.6rem;
+  text-shadow: 0 0 5px var(--accent-pink);
+  box-shadow: 0 0 10px rgba(255, 102, 204, 0.3);
+  transition: all 0.3s ease;
 }
 
+.skill-tag:hover {
+  background: var(--accent-pink);
+  color: #000;
+  text-shadow: none;
+}
+
+/* 底部：条形码与联系方式 */
+.card-footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.barcode-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.barcode {
+  display: flex;
+  gap: 2px;
+  height: 30px;
+  align-items: flex-end;
+}
+
+.barcode-line {
+  height: 100%;
+  background: var(--accent-cyan);
+}
+
+.contact-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+}
+
+.contact-line {
+  color: var(--text-secondary);
+}
+
+.contact-line .cyan {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 5px var(--accent-cyan);
+}
+
+/* 重启按钮 */
 .restart-btn {
+  display: block;
+  margin: var(--spacing-md) auto 0;
   background: transparent;
   border: 2px solid var(--accent-pink);
   color: var(--accent-pink);
   padding: var(--spacing-sm) var(--spacing-md);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   cursor: pointer;
-  opacity: 0;
   transition: all 0.3s ease;
-  margin-top: var(--spacing-lg);
   text-shadow: 0 0 10px var(--accent-pink);
   box-shadow: 0 0 20px rgba(255, 102, 204, 0.5);
-}
-
-.restart-btn.visible {
-  opacity: 1;
   animation: pulse-pink 2s ease-in-out infinite;
 }
 
@@ -1302,6 +1587,33 @@ tr.tier-minnow td:first-child { color: #888; }
   color: #000;
   text-shadow: none;
   box-shadow: 0 0 40px var(--accent-pink);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .card-body {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .avatar-frame {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .player-info-header {
+    text-align: center;
+  }
+  
+  .stat-label {
+    width: 80px;
+    font-size: 0.45rem;
+  }
+  
+  .player-id-card {
+    margin: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
 }
 
 /* ============================================

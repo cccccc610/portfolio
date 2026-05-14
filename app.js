@@ -375,3 +375,79 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.terminal-line, .fade-in').forEach(el => {
   observer.observe(el);
 });
+
+// Initialize Outro Screen Animations (Player ID Card)
+function initOutroAnimations() {
+  const playerCard = document.querySelector('.player-id-card');
+  if (!playerCard) return;
+  
+  // 3D flip entrance animation
+  gsap.from(playerCard, {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%",
+      toggleActions: "play none none reverse"
+    },
+    rotateY: 90,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out",
+    onComplete: () => {
+      // Add neon border flow animation
+      playerCard.classList.add('active');
+    }
+  });
+  
+  // Stats bar animations
+  gsap.from('.stat-bar-fill', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 50%"
+    },
+    width: 0,
+    duration: 1,
+    stagger: 0.15,
+    ease: "power2.out"
+  });
+  
+  // Skill tags stagger
+  gsap.from('.skill-tag', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 50%"
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: "back.out"
+  });
+  
+  // Barcode animation
+  gsap.from('.barcode', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 50%"
+    },
+    scaleX: 0,
+    transformOrigin: "left center",
+    duration: 0.8,
+    ease: "power2.out"
+  });
+}
+
+// Avatar glitch effect on hover
+document.addEventListener('DOMContentLoaded', () => {
+  const avatarArea = document.querySelector('.avatar-area');
+  if (avatarArea) {
+    avatarArea.addEventListener('mouseenter', () => {
+      avatarArea.classList.add('glitch-active');
+    });
+    avatarArea.addEventListener('mouseleave', () => {
+      avatarArea.classList.remove('glitch-active');
+    });
+  }
+  
+  // Initialize outro animations
+  initOutroAnimations();
+});

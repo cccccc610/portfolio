@@ -1283,14 +1283,116 @@
   <!-- Section 4: 终章谢幕 -->
   <section id="outro-screen" class="screen">
     <div class="outro-container">
-      <div class="terminal-block">
-        <p class="terminal-line">&gt; MISSION ACCOMPLISHED.</p>
-        <p class="terminal-line">&gt; INITIATE CONTACT PROTOCOL:</p>
-        <p class="terminal-line contact">&gt; PHONE: <span class="accent">137-6334-3826</span></p>
-        <p class="terminal-line contact">&gt; EMAIL: <span class="accent">1070133802@qq.com</span></p>
-        <p class="terminal-line spacer">&gt; YEARS OF EXP: <span class="accent">7</span></p>
+      <!-- 玩家身份卡 -->
+      <div class="player-id-card" id="player-card">
+        <!-- 卡片顶部装饰 -->
+        <div class="card-header-deco">
+          <div class="deco-line"></div>
+          <span class="card-title">PLAYER IDENTIFICATION CARD</span>
+          <div class="deco-line"></div>
+        </div>
+        
+        <!-- 卡片主体 -->
+        <div class="card-body">
+          <!-- 左侧：头像区域 -->
+          <div class="avatar-area">
+            <div class="avatar-frame">
+              <div class="avatar-glow"></div>
+              <img src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E6%88%AA%E5%B1%8F2026-05-13+12.43.15.png&nonce=92e9c3c1-4b38-4a5c-926f-eac7c0dd533b&project_id=7622977788022407178&sign=5600239338a9c70f335881fb12552ae8385656af31049c6ebaa51d57e3b39486" alt="Ira Avatar" class="avatar-img" id="avatar-img">
+            </div>
+            <div class="player-id-tag">[ PLAYER ID: 001 ]</div>
+          </div>
+          
+          <!-- 右侧：信息与属性区域 -->
+          <div class="info-area">
+            <!-- 姓名与职业 -->
+            <div class="player-info-header">
+              <h2 class="player-name-display">杨程 (Ira)</h2>
+              <p class="player-class-display">CLASS: 商业化美术资源运营 / 营销策略专家</p>
+            </div>
+            
+            <!-- RPG属性条 -->
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">EXP</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" data-value="7"></div>
+                </div>
+                <span class="stat-value">7 YRS</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">PIPELINE BUILD</span>
+                <div class="stat-bar">
+                  <div class="stat-fill max" data-value="100"></div>
+                </div>
+                <span class="stat-value">MAX</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">ROI OPT</span>
+                <div class="stat-bar">
+                  <div class="stat-fill s-rank" data-value="95"></div>
+                </div>
+                <span class="stat-value">S-RANK</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">COPYRIGHT RISK</span>
+                <div class="stat-bar">
+                  <div class="stat-fill zero" data-value="0"></div>
+                </div>
+                <span class="stat-value">0%</span>
+              </div>
+            </div>
+            
+            <!-- 技能标签 -->
+            <div class="skills-area">
+              <span class="skill-tag">整合营销</span>
+              <span class="skill-tag">商业化外观资源制作</span>
+              <span class="skill-tag">跨团队协作</span>
+              <span class="skill-tag">破圈传播</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 底部：条形码与联系方式 -->
+        <div class="card-footer">
+          <div class="barcode-area">
+            <div class="barcode">
+              <div class="barcode-line" style="width: 3px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 4px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 3px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 4px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 3px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 4px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 3px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 4px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+              <div class="barcode-line" style="width: 3px;"></div>
+              <div class="barcode-line" style="width: 2px;"></div>
+              <div class="barcode-line" style="width: 1px;"></div>
+            </div>
+            <div class="contact-terminal">
+              <span class="contact-line">&gt; PHONE: <span class="cyan">13763343826</span></span>
+              <span class="contact-line">&gt; EMAIL: <span class="cyan">1070133802@qq.com</span></span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 重启按钮 -->
         <button class="restart-btn" id="restart-btn">
-          <span class="btn-text">[ RESTART JOURNEY ? ]</span>
+          <span class="btn-text">[ SYSTEM SHUTDOWN / RESTART ? ]</span>
         </button>
       </div>
     </div>
