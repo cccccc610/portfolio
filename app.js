@@ -413,7 +413,7 @@ function initOutroAnimations() {
   });
   
   // Stats bar animations - stagger fill from left to right
-  const statFills = document.querySelectorAll('.stat-bar-fill');
+  const statFills = document.querySelectorAll('.stat-fill-outro');
   statFills.forEach(fill => {
     const targetWidth = fill.dataset.width || 0;
     gsap.to(fill, {
@@ -456,16 +456,16 @@ function initOutroAnimations() {
     delay: 0.6
   });
   
-  // Avatar porthole animation
-  gsap.from('.avatar-porthole', {
+  // Showcase image animation
+  gsap.from('.showcase-image-container', {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 60%"
     },
-    scale: 0.8,
+    scale: 0.95,
     opacity: 0,
     duration: 0.8,
-    ease: "back.out(1.7)",
+    ease: "power2.out",
     delay: 0.4
   });
   
@@ -496,15 +496,15 @@ function initOutroAnimations() {
   });
 }
 
-// Avatar hover effects
+// Window and element hover effects
 document.addEventListener('DOMContentLoaded', () => {
-  const avatarPorthole = document.querySelector('.avatar-porthole');
-  if (avatarPorthole) {
-    avatarPorthole.addEventListener('mouseenter', () => {
-      avatarPorthole.classList.add('hover-active');
+  const profileWindow = document.querySelector('.profile-window');
+  if (profileWindow) {
+    profileWindow.addEventListener('mouseenter', () => {
+      profileWindow.classList.add('hover-active');
     });
-    avatarPorthole.addEventListener('mouseleave', () => {
-      avatarPorthole.classList.remove('hover-active');
+    profileWindow.addEventListener('mouseleave', () => {
+      profileWindow.classList.remove('hover-active');
     });
   }
   
