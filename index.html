@@ -1284,119 +1284,151 @@
     </div>
   </section>
 
-  <!-- Section 4: 终章谢幕 -->
+  <!-- Section 4: 终章谢幕 - 玩家档案 -->
   <section id="outro-screen" class="screen">
-    <div class="outro-container">
-      <!-- 玩家身份卡 -->
-      <div class="player-id-card" id="player-card">
-        <!-- 卡片顶部装饰 -->
-        <div class="card-header-deco">
-          <div class="deco-line"></div>
-          <span class="card-title">PLAYER IDENTIFICATION CARD</span>
-          <div class="deco-line"></div>
+    <div class="outro-wrapper">
+      <!-- 视窗容器 -->
+      <div class="profile-window" id="profile-window">
+        <!-- 顶部 Window Bar -->
+        <div class="window-bar">
+          <div class="window-title">
+            <span class="window-icon">◈</span>
+            <span class="title-text">PLAYER PROFILE // DATABASE</span>
+          </div>
+          <div class="window-controls">
+            <span class="control-btn minimize">─</span>
+            <span class="control-btn maximize">□</span>
+            <span class="control-btn close">✕</span>
+          </div>
         </div>
         
-        <!-- 卡片主体 -->
-        <div class="card-body">
-          <!-- 左侧：头像区域 -->
-          <div class="avatar-area">
-            <div class="avatar-frame">
-              <div class="avatar-glow"></div>
-              <img src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E6%88%AA%E5%B1%8F2026-05-13+12.43.15.png&nonce=92e9c3c1-4b38-4a5c-926f-eac7c0dd533b&project_id=7622977788022407178&sign=5600239338a9c70f335881fb12552ae8385656af31049c6ebaa51d57e3b39486" alt="Ira Avatar" class="avatar-img" id="avatar-img">
+        <!-- 视窗内容 -->
+        <div class="window-content">
+          <!-- 左侧模块 -->
+          <div class="left-panel">
+            <!-- 区块 A: 核心指数 -->
+            <div class="panel-block stats-block">
+              <div class="block-header">
+                <span class="block-icon">◆</span>
+                <span class="block-title">CORE STATS</span>
+              </div>
+              <div class="stats-list">
+                <div class="stat-row">
+                  <span class="stat-name">EXP</span>
+                  <div class="stat-bar-container">
+                    <div class="stat-bar-fill" data-width="100"></div>
+                  </div>
+                  <span class="stat-val">7 YRS</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-name">PIPELINE BUILD</span>
+                  <div class="stat-bar-container">
+                    <div class="stat-bar-fill" data-width="100"></div>
+                  </div>
+                  <span class="stat-val">MAX</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-name">ROI OPT</span>
+                  <div class="stat-bar-container">
+                    <div class="stat-bar-fill" data-width="95"></div>
+                  </div>
+                  <span class="stat-val">S-RANK</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-name">COPYRIGHT RISK</span>
+                  <div class="stat-bar-container">
+                    <div class="stat-bar-fill zero" data-width="0"></div>
+                  </div>
+                  <span class="stat-val">0%</span>
+                </div>
+              </div>
             </div>
-            <div class="player-id-tag">[ PLAYER ID: 001 ]</div>
+            
+            <!-- 区块 B: 擅长领域 -->
+            <div class="panel-block skills-block">
+              <div class="block-header">
+                <span class="block-icon">◆</span>
+                <span class="block-title">POWERS / SKILLS</span>
+              </div>
+              <div class="skills-container">
+                <span class="skill-capsule">整合营销</span>
+                <span class="skill-capsule">商业化外观管线</span>
+                <span class="skill-capsule">跨界联动</span>
+                <span class="skill-capsule">模型与数据分析</span>
+              </div>
+            </div>
+            
+            <!-- 区块 C: 关键经验 -->
+            <div class="panel-block exp-block">
+              <div class="block-header">
+                <span class="block-icon">◆</span>
+                <span class="block-title">EXPERIENCE LOG</span>
+              </div>
+              <div class="exp-list">
+                <p class="exp-item">► 7年游戏/广告行业经验，深耕二次元商业化美术领域</p>
+                <p class="exp-item">► 主导300+外观资源交付，建立行业首个商业化分析决策平台</p>
+                <p class="exp-item">► 整合外部资源，保障高影响力跨界合作与大型商业化节点落地</p>
+              </div>
+            </div>
           </div>
           
-          <!-- 右侧：信息与属性区域 -->
-          <div class="info-area">
-            <!-- 姓名与职业 -->
-            <div class="player-info-header">
-              <h2 class="player-name-display">杨程 (Ira)</h2>
-              <p class="player-class-display">CLASS: 商业化美术资源运营 / 营销策略专家</p>
-            </div>
-            
-            <!-- RPG属性条 -->
-            <div class="stats-grid">
-              <div class="stat-item">
-                <span class="stat-label">EXP</span>
-                <div class="stat-bar">
-                  <div class="stat-fill" data-value="7"></div>
+          <!-- 右侧模块 -->
+          <div class="right-panel">
+            <!-- 头像区域 -->
+            <div class="avatar-section">
+              <div class="avatar-porthole">
+                <div class="porthole-ring outer"></div>
+                <div class="porthole-ring inner"></div>
+                <div class="avatar-image">
+                  <img src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E6%88%AA%E5%B1%8F2026-05-13+12.43.15.png&nonce=92e9c3c1-4b38-4a5c-926f-eac7c0dd533b&project_id=7622977788022407178&sign=5600239338a9c70f335881fb12552ae8385656af31049c6ebaa51d57e3b39486" alt="Ira Avatar" class="avatar-img">
                 </div>
-                <span class="stat-value">7 YRS</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">PIPELINE BUILD</span>
-                <div class="stat-bar">
-                  <div class="stat-fill max" data-value="100"></div>
-                </div>
-                <span class="stat-value">MAX</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">ROI OPT</span>
-                <div class="stat-bar">
-                  <div class="stat-fill s-rank" data-value="95"></div>
-                </div>
-                <span class="stat-value">S-RANK</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">COPYRIGHT RISK</span>
-                <div class="stat-bar">
-                  <div class="stat-fill zero" data-value="0"></div>
-                </div>
-                <span class="stat-value">0%</span>
+                <div class="porthole-glow"></div>
               </div>
             </div>
             
-            <!-- 技能标签 -->
-            <div class="skills-area">
-              <span class="skill-tag">整合营销</span>
-              <span class="skill-tag">商业化外观资源制作</span>
-              <span class="skill-tag">跨团队协作</span>
-              <span class="skill-tag">破圈传播</span>
+            <!-- 身份标识 -->
+            <div class="identity-section">
+              <h2 class="player-name">NAME: 杨程 (Ira)</h2>
+              <p class="player-class">CLASS: 商业化美术资源运营 / 营销策略专家</p>
+              
+              <!-- 条形码装饰 -->
+              <div class="barcode-section">
+                <div class="barcode-display">
+                  <div class="barcode-line" style="width: 2px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 3px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 2px;"></div>
+                  <div class="barcode-line" style="width: 4px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 2px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 3px;"></div>
+                  <div class="barcode-line" style="width: 2px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 4px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                  <div class="barcode-line" style="width: 2px;"></div>
+                  <div class="barcode-line" style="width: 3px;"></div>
+                  <div class="barcode-line" style="width: 1px;"></div>
+                </div>
+                <span class="barcode-label">ID: IRA-001-ELITE</span>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- 底部：条形码与联系方式 -->
-        <div class="card-footer">
-          <div class="barcode-area">
-            <div class="barcode">
-              <div class="barcode-line" style="width: 3px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 4px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 3px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 4px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 3px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 4px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 3px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 4px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-              <div class="barcode-line" style="width: 3px;"></div>
-              <div class="barcode-line" style="width: 2px;"></div>
-              <div class="barcode-line" style="width: 1px;"></div>
-            </div>
-            <div class="contact-terminal">
-              <span class="contact-line">&gt; PHONE: <span class="cyan">13763343826</span></span>
-              <span class="contact-line">&gt; EMAIL: <span class="cyan">1070133802@qq.com</span></span>
-            </div>
-          </div>
+      </div>
+      
+      <!-- 底部联系方式 -->
+      <div class="contact-footer">
+        <div class="terminal-contact">
+          <span class="contact-item">&gt; PHONE: <span class="highlight">13763343826</span></span>
+          <span class="contact-item">&gt; EMAIL: <span class="highlight">1070133802@qq.com</span></span>
         </div>
-        
-        <!-- 重启按钮 -->
         <button class="restart-btn" id="restart-btn">
-          <span class="btn-text">[ SYSTEM SHUTDOWN / RESTART ? ]</span>
+          <span class="btn-bracket">[</span>
+          <span class="btn-text">SYSTEM SHUTDOWN / RESTART ?</span>
+          <span class="btn-bracket">]</span>
         </button>
       </div>
     </div>

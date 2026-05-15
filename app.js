@@ -387,78 +387,124 @@ document.querySelectorAll('.terminal-line, .fade-in').forEach(el => {
   observer.observe(el);
 });
 
-// Initialize Outro Screen Animations (Player ID Card)
+// Initialize Outro Screen Animations (Player Profile Window)
 function initOutroAnimations() {
-  const playerCard = document.querySelector('.player-id-card');
-  if (!playerCard) return;
+  const profileWindow = document.querySelector('.profile-window');
+  if (!profileWindow) return;
   
-  // Set initial state
-  gsap.set(playerCard, { rotateY: 90, opacity: 0 });
+  // Set initial state for the window
+  gsap.set(profileWindow, { opacity: 0, scale: 0.95 });
   
-  // 3D flip entrance animation
-  gsap.to(playerCard, {
+  // Window entrance animation - fade in + scale
+  gsap.to(profileWindow, {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 70%",
       toggleActions: "play none none reverse"
     },
-    rotateY: 0,
     opacity: 1,
-    duration: 1.2,
+    scale: 1,
+    duration: 0.8,
     ease: "power2.out",
     onComplete: () => {
-      // Add neon border flow animation
-      playerCard.classList.add('active');
+      // Add active class for border glow effect
+      profileWindow.classList.add('active');
     }
   });
   
-  // Stats bar animations
-  gsap.from('.stat-fill', {
-    scrollTrigger: {
-      trigger: '#outro-screen',
-      start: "top 50%"
-    },
-    width: 0,
-    duration: 1,
-    stagger: 0.15,
-    ease: "power2.out"
+  // Stats bar animations - stagger fill from left to right
+  const statFills = document.querySelectorAll('.stat-bar-fill');
+  statFills.forEach(fill => {
+    const targetWidth = fill.dataset.width || 0;
+    gsap.to(fill, {
+      scrollTrigger: {
+        trigger: '#outro-screen',
+        start: "top 60%"
+      },
+      width: `${targetWidth}%`,
+      duration: 1.2,
+      ease: "power2.out",
+      delay: 0.3
+    });
   });
   
-  // Skill tags stagger
-  gsap.from('.skill-tag', {
+  // Skill capsules stagger animation
+  gsap.from('.skill-capsule', {
     scrollTrigger: {
       trigger: '#outro-screen',
-      start: "top 50%"
+      start: "top 60%"
     },
-    y: 20,
+    y: 15,
     opacity: 0,
     duration: 0.5,
     stagger: 0.1,
-    ease: "back.out"
+    ease: "back.out(1.7)",
+    delay: 0.5
+  });
+  
+  // Experience items fade in
+  gsap.from('.exp-item', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    x: -20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: "power2.out",
+    delay: 0.6
+  });
+  
+  // Avatar porthole animation
+  gsap.from('.avatar-porthole', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    delay: 0.4
+  });
+  
+  // Player name glow effect
+  gsap.from('.player-name', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    y: 10,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out",
+    delay: 0.7
   });
   
   // Barcode animation
-  gsap.from('.barcode', {
+  gsap.from('.barcode-display', {
     scrollTrigger: {
       trigger: '#outro-screen',
-      start: "top 50%"
+      start: "top 60%"
     },
     scaleX: 0,
-    transformOrigin: "left center",
-    duration: 0.8,
-    ease: "power2.out"
+    transformOrigin: "center center",
+    duration: 0.6,
+    ease: "power2.out",
+    delay: 0.8
   });
 }
 
-// Avatar glitch effect on hover
+// Avatar hover effects
 document.addEventListener('DOMContentLoaded', () => {
-  const avatarArea = document.querySelector('.avatar-area');
-  if (avatarArea) {
-    avatarArea.addEventListener('mouseenter', () => {
-      avatarArea.classList.add('glitch-active');
+  const avatarPorthole = document.querySelector('.avatar-porthole');
+  if (avatarPorthole) {
+    avatarPorthole.addEventListener('mouseenter', () => {
+      avatarPorthole.classList.add('hover-active');
     });
-    avatarArea.addEventListener('mouseleave', () => {
-      avatarArea.classList.remove('glitch-active');
+    avatarPorthole.addEventListener('mouseleave', () => {
+      avatarPorthole.classList.remove('hover-active');
     });
   }
   
