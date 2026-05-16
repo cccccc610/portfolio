@@ -1356,7 +1356,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .passport-title {
   font-family: var(--font-pixel);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: var(--accent-cyan);
   letter-spacing: 3px;
   text-shadow: 0 0 10px var(--accent-cyan);
@@ -1447,7 +1447,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .name-label {
   font-family: var(--font-pixel);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   color: #FFFFFF;
   letter-spacing: 2px;
   text-shadow: 0 0 8px var(--accent-cyan);
@@ -1475,7 +1475,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .barcode-id {
   font-family: var(--font-pixel);
-  font-size: 0.35rem;
+  font-size: 0.5rem;
   color: rgba(0, 255, 255, 0.6);
   letter-spacing: 1px;
 }
@@ -1501,15 +1501,15 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .info-label {
   font-family: var(--font-pixel);
-  font-size: 0.45rem;
+  font-size: 0.7rem;
   color: var(--accent-cyan);
   letter-spacing: 1px;
-  min-width: 50px;
+  min-width: 60px;
 }
 
 .info-value {
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.9rem;
   color: #FFFFFF;
   letter-spacing: 0.5px;
 }
@@ -1521,7 +1521,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .contact-row .info-value {
   font-family: var(--font-pixel);
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 }
 
 /* ============================================
@@ -1536,7 +1536,7 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .section-title .icon {
   color: var(--accent-cyan);
-  font-size: 0.45rem;
+  font-size: 0.6rem;
   text-shadow: 0 0 8px var(--accent-cyan);
 }
 
@@ -1570,9 +1570,9 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .stat-name {
   font-family: var(--font-pixel);
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   color: rgba(255, 255, 255, 0.7);
-  min-width: 50px;
+  min-width: 55px;
   letter-spacing: 1px;
 }
 
@@ -1581,9 +1581,9 @@ tr.tier-minnow td:first-child { color: #888; }
 }
 
 .stat-bar-track {
-  height: 6px;
+  height: 8px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -1610,9 +1610,9 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .stat-val {
   font-family: var(--font-pixel);
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   color: #FFFFFF;
-  min-width: 45px;
+  min-width: 50px;
   text-align: right;
   text-shadow: 0 0 8px var(--accent-cyan);
 }
@@ -1633,11 +1633,11 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .skill-tag-outro {
   font-family: var(--font-body);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   color: #FFFFFF;
   background: rgba(0, 255, 255, 0.1);
   border: 1px solid rgba(0, 255, 255, 0.3);
-  padding: 0.3rem 0.7rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 20px;
   transition: all 0.3s ease;
 }
@@ -1664,9 +1664,9 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .exp-text {
   font-family: var(--font-body);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   color: #FFFFFF;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0;
   letter-spacing: 0.2px;
 }
@@ -1690,9 +1690,9 @@ tr.tier-minnow td:first-child { color: #888; }
   background: transparent;
   border: 1px solid var(--accent-pink);
   color: var(--accent-pink);
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   font-family: var(--font-pixel);
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
