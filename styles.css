@@ -1368,8 +1368,24 @@ tr.tier-minnow td:first-child { color: #888; }
 
 .passport-content {
   display: flex;
-  gap: 0;
-  padding: 1.5rem;
+  flex-direction: column;
+  padding: 1.2rem;
+  gap: 1rem;
+}
+
+/* 上半部分：左右布局 */
+.passport-top {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+/* 下半部分：全宽区块 */
+.passport-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 /* ============================================
@@ -1377,18 +1393,18 @@ tr.tier-minnow td:first-child { color: #888; }
    ============================================ */
 
 .passport-left {
-  flex: 0 0 180px;
+  flex: 0 0 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding-right: 1.5rem;
+  gap: 0.8rem;
+  padding-right: 1rem;
   border-right: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .avatar-frame-outro {
-  width: 160px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   position: relative;
   border: 2px solid var(--accent-cyan);
   border-radius: 8px;
@@ -1465,22 +1481,16 @@ tr.tier-minnow td:first-child { color: #888; }
 }
 
 /* ============================================
-   Right Side - 右侧信息区
+   Right Side - 右侧信息区（基础信息）
    ============================================ */
 
 .passport-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  padding-left: 1.5rem;
-}
-
-/* 信息区 */
-.info-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-left: 1rem;
 }
 
 .info-row {
@@ -1514,7 +1524,9 @@ tr.tier-minnow td:first-child { color: #888; }
   font-size: 0.5rem;
 }
 
-/* Section 标题 */
+/* ============================================
+   Section 标题
+   ============================================ */
 .section-title {
   display: flex;
   align-items: center;
@@ -1740,30 +1752,39 @@ tr.tier-minnow td:first-child { color: #888; }
 
 @media (max-width: 768px) {
   .passport-content {
-    flex-direction: column;
     padding: 1rem;
+  }
+  
+  .passport-top {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-bottom: 0.8rem;
   }
   
   .passport-left {
     flex: none;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     padding-right: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 0.8rem;
     border-right: none;
     border-bottom: 1px solid rgba(0, 255, 255, 0.2);
   }
   
   .passport-right {
     padding-left: 0;
-    padding-top: 1rem;
+    align-items: center;
+  }
+  
+  .info-row {
+    justify-content: center;
   }
   
   .avatar-frame-outro {
-    width: 120px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
   }
   
   .name-label {
@@ -1806,12 +1827,12 @@ tr.tier-minnow td:first-child { color: #888; }
 @media (max-width: 480px) {
   .passport-left {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
   
   .avatar-frame-outro {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
   
   .barcode-lines {
