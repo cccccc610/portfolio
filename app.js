@@ -387,16 +387,16 @@ document.querySelectorAll('.terminal-line, .fade-in').forEach(el => {
   observer.observe(el);
 });
 
-// Initialize Outro Screen Animations (Player Profile Window)
+// Initialize Outro Screen Animations (Passport Card)
 function initOutroAnimations() {
-  const profileWindow = document.querySelector('.profile-window');
-  if (!profileWindow) return;
+  const passportCard = document.querySelector('.passport-card');
+  if (!passportCard) return;
   
-  // Set initial state for the window
-  gsap.set(profileWindow, { opacity: 0, scale: 0.95 });
+  // Set initial state for the card
+  gsap.set(passportCard, { opacity: 0, scale: 0.95 });
   
-  // Window entrance animation - fade in + scale
-  gsap.to(profileWindow, {
+  // Card entrance animation - fade in + scale
+  gsap.to(passportCard, {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 70%",
@@ -408,13 +408,53 @@ function initOutroAnimations() {
     ease: "power2.out",
     onComplete: () => {
       // Add active class for border glow effect
-      profileWindow.classList.add('active');
+      passportCard.classList.add('active');
     }
   });
   
+  // Avatar frame animation
+  gsap.from('.avatar-frame-outro', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.6,
+    ease: "back.out(1.7)",
+    delay: 0.3
+  });
+  
+  // Name tag animation
+  gsap.from('.player-name-tag', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    y: 10,
+    opacity: 0,
+    duration: 0.5,
+    ease: "power2.out",
+    delay: 0.4
+  });
+  
+  // Info rows stagger animation
+  gsap.from('.info-row', {
+    scrollTrigger: {
+      trigger: '#outro-screen',
+      start: "top 60%"
+    },
+    x: -15,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: "power2.out",
+    delay: 0.3
+  });
+  
   // Stats bar animations - stagger fill from left to right
-  const statFills = document.querySelectorAll('.stat-fill-outro');
-  statFills.forEach(fill => {
+  const statFills = document.querySelectorAll('.stat-bar-fill');
+  statFills.forEach((fill, index) => {
     const targetWidth = fill.dataset.width || 0;
     gsap.to(fill, {
       scrollTrigger: {
@@ -424,12 +464,12 @@ function initOutroAnimations() {
       width: `${targetWidth}%`,
       duration: 1.2,
       ease: "power2.out",
-      delay: 0.3
+      delay: 0.5 + (index * 0.1)
     });
   });
   
-  // Skill capsules stagger animation
-  gsap.from('.skill-capsule', {
+  // Skill tags stagger animation
+  gsap.from('.skill-tag-outro', {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 60%"
@@ -439,11 +479,11 @@ function initOutroAnimations() {
     duration: 0.5,
     stagger: 0.1,
     ease: "back.out(1.7)",
-    delay: 0.5
+    delay: 0.7
   });
   
-  // Experience items fade in
-  gsap.from('.exp-item', {
+  // Experience text fade in
+  gsap.from('.exp-text', {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 60%"
@@ -453,37 +493,11 @@ function initOutroAnimations() {
     duration: 0.6,
     stagger: 0.15,
     ease: "power2.out",
-    delay: 0.6
-  });
-  
-  // Showcase image animation
-  gsap.from('.showcase-image-container', {
-    scrollTrigger: {
-      trigger: '#outro-screen',
-      start: "top 60%"
-    },
-    scale: 0.95,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-    delay: 0.4
-  });
-  
-  // Player name glow effect
-  gsap.from('.player-name', {
-    scrollTrigger: {
-      trigger: '#outro-screen',
-      start: "top 60%"
-    },
-    y: 10,
-    opacity: 0,
-    duration: 0.6,
-    ease: "power2.out",
-    delay: 0.7
+    delay: 0.8
   });
   
   // Barcode animation
-  gsap.from('.barcode-display', {
+  gsap.from('.barcode-lines', {
     scrollTrigger: {
       trigger: '#outro-screen',
       start: "top 60%"
@@ -492,19 +506,19 @@ function initOutroAnimations() {
     transformOrigin: "center center",
     duration: 0.6,
     ease: "power2.out",
-    delay: 0.8
+    delay: 0.5
   });
 }
 
 // Window and element hover effects
 document.addEventListener('DOMContentLoaded', () => {
-  const profileWindow = document.querySelector('.profile-window');
-  if (profileWindow) {
-    profileWindow.addEventListener('mouseenter', () => {
-      profileWindow.classList.add('hover-active');
+  const passportCard = document.querySelector('.passport-card');
+  if (passportCard) {
+    passportCard.addEventListener('mouseenter', () => {
+      passportCard.classList.add('hover-active');
     });
-    profileWindow.addEventListener('mouseleave', () => {
-      profileWindow.classList.remove('hover-active');
+    passportCard.addEventListener('mouseleave', () => {
+      passportCard.classList.remove('hover-active');
     });
   }
   
