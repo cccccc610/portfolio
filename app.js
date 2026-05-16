@@ -5,7 +5,7 @@
 // Data
 const portfolioData = {
   profile: {
-    name: "Ira",
+    name: "doriscyang",
     title: "商业化美术资源运营 / 营销策略专家",
     yearsOfExperience: 7,
     contact: { 
@@ -54,7 +54,7 @@ const cursorFollower = document.querySelector('.cursor-follower');
 // Terminal lines for intro - Synthwave/Cyber style
 const terminalLines = [
   '> SYSTEM BOOT...',
-  '> PLAYER DETECTED: IRA',
+  '> PLAYER DETECTED: doriscyang',
   '> CLASS: COMMERCIAL STRATEGIST',
   '> RANK: ELITE OPERATOR',
   '> STATUS: READY'
